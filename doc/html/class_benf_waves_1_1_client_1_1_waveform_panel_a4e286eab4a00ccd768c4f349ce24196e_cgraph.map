@@ -1,0 +1,6 @@
+<map id="BenfWaves.Client.WaveformPanel.DrawCursor" name="BenfWaves.Client.WaveformPanel.DrawCursor">
+<area shape="rect" id="node2" href="$class_benf_waves_1_1_client_1_1_display_dimension.html#ab902a3c46f9bec86a49694136a0b4872" title="Transpose a point from absolute coordinates to dimension&#45; corrected coordinates. " alt="" coords="241,5,419,47"/>
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_client_1_1_display_dimension.html#ad9b1fe9991e15cee33eba91a264fe054" title="Convert a pixel distance to a waveform quantity. " alt="" coords="245,71,415,112"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_s_i_value.html#aae6acd20320342eb30b210e1b7d36f80" title="Represent the SI quantity as a string. " alt="" coords="239,136,421,177"/>
+<area shape="rect" id="node5" href="$class_benf_waves_1_1_client_1_1_display_dimension.html#afed730edc509197a331c13a2f71a27b5" title="Convert a waveform quantity to a pixel distance. " alt="" coords="245,201,415,243"/>
+</map>

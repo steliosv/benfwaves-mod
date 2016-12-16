@@ -1,0 +1,458 @@
+﻿/** \file
+* \$Rev: 125 $
+* 
+* \$Date: 2011-05-27 02:16:48 +0000 (Fri, 27 May 2011) $
+*
+* \$URL: http://benfwaves.googlecode.com/svn/branches/basic-vs2012/BenfWaves.Client/WaveformPanel.cs $
+*/
+
+using System;
+using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Text;
+using System.Windows.Forms;
+
+using BenfWaves.Library;
+
+namespace BenfWaves.Client
+{
+	/// <summary>
+	/// A simple trace display for a waveform.
+	/// </summary>
+	public partial class WaveformPanel : Panel
+	{
+		/// <summary>The pen to draw the waveform trace.</summary>
+		static protected readonly Pen tracePen = new Pen(Color.Blue, 1.5f);
+		/// <summary>The pen to draw the axes.</summary>
+		static protected readonly Pen axisPen = new Pen(Color.Black, 1f);
+		/// <summary>The pen to draw the grid lines.</summary>
+		static protected readonly Pen gridPen = new Pen(Color.LightGray, 1f);
+		/// <summary>The pen to draw the cursor lines.</summary>
+		static protected readonly Pen cursorPen = new Pen(Color.Purple, 0.5f);
+		/// <summary>
+		/// The brush for the axis text (voltage and time markings).
+		/// </summary>
+		static protected readonly Brush axisTextBrush = new SolidBrush(Color.Black);
+		/// <summary>
+		/// The font for the axis text (voltage and time markings).
+		/// </summary>
+		static protected readonly Font axisTextFont = new Font(
+			new FontFamily(GenericFontFamilies.Monospace), 8f);
+
+		/// <summary>The horizontal display dimension.</summary>
+		protected readonly DisplayDimension dimHorz = new DisplayDimension();
+		/// <summary>The vertical display dimension.</summary>
+		protected readonly DisplayDimension dimVert = new DisplayDimension();
+
+		/// <summary>
+		/// The horizontal pan scrollbar.
+		/// </summary>
+		public HScrollBar hScrollPan
+		{
+			get { return (HScrollBar)dimHorz.ScrollPan; }
+			set
+			{
+				dimHorz.ScrollPan = value;
+				value.Scroll += ScrollPan_Scroll;
+			}
+		}
+
+		/// <summary>
+		/// The vertical pan scrollbar.
+		/// </summary>
+		public VScrollBar vScrollPan
+		{
+			get { return (VScrollBar)dimVert.ScrollPan; }
+			set
+			{
+				dimVert.ScrollPan = value;
+				value.Scroll += ScrollPan_Scroll;
+			}
+		}
+
+		/// <summary>
+		/// The horizontal zoom scrollbar.
+		/// </summary>
+		public HScrollBar hScrollZoom
+		{
+			get { return (HScrollBar)dimHorz.ScrollZoom; }
+			set
+			{
+				dimHorz.ScrollZoom = value;
+				value.Scroll += hScrollZoom_Scroll;
+			}
+		}
+
+		/// <summary>
+		/// The vertical zoom scrollbar.
+		/// </summary>
+		public VScrollBar vScrollZoom
+		{
+			get { return (VScrollBar)dimVert.ScrollZoom; }
+			set
+			{
+				dimVert.ScrollZoom = value;
+				value.Scroll += vScrollZoom_Scroll;
+			}
+		}
+
+		/// <summary>
+		/// The drawing quality of the waveform. This should be decreased when
+		/// the user is resizing, zooming, etc.
+		/// </summary>
+		protected SmoothingMode quality = SmoothingMode.HighQuality;
+
+		/// <summary>
+		/// Whether to draw horizontal and vertical cursors on the waveform.
+		/// </summary>
+		bool drawCursors = false;
+
+		/// <summary>The series to draw.</summary>
+		Series series;
+
+		/// <summary>The series to draw.</summary>
+		public Series Series
+		{
+			get { return series; }
+			set
+			{
+				series = value;
+				if (series != null)
+				{
+					dimHorz.SeriesDim = value.DimHorz;
+					dimVert.SeriesDim = value.DimVert;
+				}
+			}
+		}
+
+		/// <summary>
+		/// The constructor.
+		/// </summary>
+		public WaveformPanel()
+		{
+			this.Series = series;
+
+			InitializeComponent();
+
+			DoubleBuffered = true;
+
+			gridPen.DashStyle = DashStyle.Dash;
+
+			dimHorz.Orth = dimVert;
+			dimVert.Orth = dimHorz;
+			dimHorz.DisplayInversion = false;
+			dimVert.DisplayInversion = true;
+			dimHorz.GetPanelSize = () => Size;
+			dimVert.GetPanelSize = () => Size;
+			dimHorz.TransposePointF = p => p;
+			dimVert.TransposePointF = p => new PointF(p.Y, p.X);
+			dimHorz.StringFormat =
+				new StringFormat(StringFormatFlags.DirectionVertical);
+			dimVert.StringFormat = StringFormat.GenericDefault;
+			dimHorz.Intersect = curx =>
+				Series.DimVert.IndexToUnit(PixelToIndex(curx));
+			dimVert.Intersect = cury =>
+			{
+				double? index = series.DimVert.UnitToIndexLimited(
+					dimVert.PixelToUnit(cury),
+					(int)PixelToIndex(0),
+					(int)PixelToIndex(Width));
+				return index == null ? index :
+					series.DimHorz.IndexToUnit(index ?? 0);
+			};
+
+			dimHorz.RefreshPan(ScrollEventType.EndScroll);
+			dimVert.RefreshPan(ScrollEventType.EndScroll); 
+			
+			Refresh();
+		}
+
+		/// <summary>
+		/// Convert an array index to a pixel distance.
+		/// </summary>
+		/// <param name="index">The array index.</param>
+		/// <returns>A pixel distance suitable for PointF.</returns>
+		float IndexToPixel(int index)
+		{
+			double pixel = (index / (double)Series.data.Length
+				- dimHorz.ViewStartFactor) / dimHorz.ZoomFactor
+				* Width;
+			return (float)pixel;
+		}
+
+		/// <summary>
+		/// Convert from a pixel value to a sequence index.
+		/// </summary>
+		/// <param name="pixel">The pixel distance.</param>
+		/// <returns>The sequence index.</returns>
+		double PixelToIndex(float pixel)
+		{
+			return Series.data.Length * (pixel / Width
+				* dimHorz.ZoomFactor + dimHorz.ViewStartFactor);
+		}
+
+		/// <summary>
+		/// Draw the horizontal and vertical axes.
+		/// </summary>
+		/// <param name="e">
+		/// The paint event arguments, including clipping information and
+		/// a graphics object.
+		/// </param>
+		void DrawAxes(PaintEventArgs e)
+		{
+			// Horizontal axis
+			float pixelZeroVolts = dimVert.UnitToPixel(0);
+			e.Graphics.DrawLine(
+				axisPen,
+				new PointF(0, pixelZeroVolts),
+				new PointF(Width, pixelZeroVolts));
+		}
+
+		/// <summary>
+		/// Draw a horizontal or vertical cursor on the display in a dimension-
+		/// agnostic fashion.
+		/// </summary>
+		/// <param name="e">
+		/// The paint event arguments, including clipping information and
+		/// a graphics object.
+		/// </param>
+		/// <param name="dim">The dimension of the cursor being drawn.</param>
+		void DrawCursor(PaintEventArgs e, DisplayDimension dim)
+		{
+			System.Drawing.Point curOnDisplay =
+				PointToClient(Cursor.Position),
+				curPix = dim.TransposePoint(curOnDisplay);
+			e.Graphics.DrawLine(
+				cursorPen,
+				dim.TransposePointF(new PointF(curPix.X, 0)),
+				dim.TransposePointF(new PointF(curPix.X, dim.PanelPixels.Y)));
+
+			double curUnitX = dim.PixelToUnit(curPix.X);
+			SIValue curUnit = dim.SeriesDim.GetNewSIValue();
+			curUnit.Value = curUnitX;
+
+			PointF textPos = dim.TransposePointF(
+				new PointF(curPix.X - 20, curPix.Y + 10));
+
+			e.Graphics.DrawString(curUnit.ToString(),
+				axisTextFont, axisTextBrush,
+				textPos, dim.StringFormat);
+
+			double? yintersect = dim.Intersect(curPix.X);
+			if (yintersect != null)
+			{
+				PointF foundPos = new PointF(curPix.X,
+						dim.Orth.UnitToPixel(yintersect ?? 0));
+				textPos = foundPos;
+				textPos.X += 10;
+				textPos = dim.TransposePointF(textPos);
+
+				SIValue orthsi = dim.Orth.SeriesDim.GetNewSIValue();
+				orthsi.Value = yintersect ?? 0;
+
+				PointF crossPos1 = foundPos,
+					crossPos2 = foundPos;
+				crossPos1.X -= 5;
+				crossPos2.X += 5;
+				crossPos1 = dim.TransposePointF(crossPos1);
+				crossPos2 = dim.TransposePointF(crossPos2);
+
+				e.Graphics.DrawString(orthsi.ToString(), axisTextFont,
+					axisTextBrush, textPos, dim.Orth.StringFormat);
+
+				e.Graphics.DrawLine(cursorPen,
+					crossPos1, crossPos2);
+			}
+		}
+
+		/// <summary>
+		/// Draw a grid in a dimension-agnostic fashion (ie. this is reused for
+		/// both horizontal and vertical grids).
+		/// </summary>
+		/// <param name="e">
+		/// The paint event arguments, including clipping information and
+		/// a graphics object.
+		/// </param>
+		/// <param name="dim">The dimension of the grid being drawn.</param>
+		void DrawGrid(PaintEventArgs e, DisplayDimension dim)
+		{
+			SIValue si = dim.SeriesDim.GetNewSIValue();
+			dim.IterateGrid((pixel1, unit, drawText) =>
+			{
+				PointF first = dim.TransposePointF(new PointF(pixel1, 0)),
+					second = dim.TransposePointF(new PointF(pixel1, dim.PanelPixels.Y));
+				e.Graphics.DrawLine(gridPen, first, second);
+				if (drawText)
+				{
+					si.Value = unit;
+					e.Graphics.DrawString(si.ToString(),
+						axisTextFont, axisTextBrush, first, dim.StringFormat);
+				}
+			});
+		}
+
+		/// <summary>Draw the trace.</summary>
+		/// <param name="e">
+		/// The paint event arguments, including clipping information and
+		/// a graphics object.
+		/// </param>
+		void DrawTrace(PaintEventArgs e)
+		{
+			// imin and imax are indices into the waveform point array
+			int imin = Math.Max((int)PixelToIndex(0), 0),
+				imax = Math.Min(Series.data.Length - 1,
+					(int)PixelToIndex(Width) + 1);
+
+			PointF prevpoint = new PointF(
+				IndexToPixel(imin),
+				dimVert.UnitToPixel(Series.data[imin]));
+
+			for (int i = imin + 1; i <= imax; i++)
+			{
+				PointF currpoint = new PointF(
+					IndexToPixel(i),
+					dimVert.UnitToPixel(Series.data[i]));
+				e.Graphics.DrawLine(tracePen, prevpoint, currpoint);
+				prevpoint = currpoint;
+			}
+		}
+
+		/// <summary>Zoom horizontally.</summary>
+		/// <param name="sender">The scrollbar.</param>
+		/// <param name="e">Scroll event information.</param>
+		private void hScrollZoom_Scroll(object sender, ScrollEventArgs e)
+		{
+			dimHorz.RefreshPan(e.Type);
+			ScrollPan_Scroll(sender, e);
+		}
+
+		/// <summary>Zoom vertically.</summary>
+		/// <param name="sender">The scrollbar.</param>
+		/// <param name="e">Scroll event information.</param>
+		private void vScrollZoom_Scroll(object sender, ScrollEventArgs e)
+		{
+			dimVert.RefreshPan(e.Type);
+			ScrollPan_Scroll(sender, e);
+		}
+
+		/// <summary>Pan in either direction.</summary>
+		/// <param name="sender">The scrollbar.</param>
+		/// <param name="e">Scroll event information.</param>
+		private void ScrollPan_Scroll(object sender, ScrollEventArgs e)
+		{
+			AdjustQuality(e);
+			Refresh();
+		}
+
+		/// <summary>Draw all waveform features.</summary>
+		/// <param name="sender">The event sender.</param>
+		/// <param name="e">
+		/// The event arguments. This includes clipping information and a
+		/// graphics object.
+		/// </param>
+		private void WaveformPanel_Paint(object sender, PaintEventArgs e)
+		{
+			if (Series == null)
+				return;
+			e.Graphics.SmoothingMode = quality;
+			DrawFeatures(e);
+		}
+
+		/// <summary>
+		/// Draw all of the features on this panel.
+		/// </summary>
+		/// <param name="e">
+		/// The paint event arguments, including clipping information and
+		/// a graphics object.
+		/// </param>
+		protected virtual void DrawFeatures(PaintEventArgs e)
+		{
+			DrawGrid(e, dimHorz);
+			DrawGrid(e, dimVert);
+			DrawAxes(e);
+			DrawTrace(e);
+
+			if (drawCursors)
+			{
+				DrawCursor(e, dimHorz);
+				DrawCursor(e, dimVert);
+			}
+		}
+
+		/// <summary>
+		/// Adjust the quality of drawing while something is being scrolled.
+		/// </summary>
+		/// <param name="e">The scroll event information.</param>
+		void AdjustQuality(ScrollEventArgs e)
+		{
+			if (e != null && e.Type == ScrollEventType.ThumbTrack)
+				quality = SmoothingMode.HighSpeed;
+			else
+				quality = SmoothingMode.HighQuality;
+		}
+
+		/// <summary>
+		/// Draw the display to a bitmap.
+		/// </summary>
+		/// <returns>The drawn bitmap object.</returns>
+		public Bitmap DrawBitmap()
+		{
+			Bitmap bitmap = new Bitmap(Width, Height);
+			Invoke((Action)(() =>
+			{
+				DrawToBitmap(bitmap,
+					new Rectangle(System.Drawing.Point.Empty,
+						Size));
+			}));
+			return bitmap;
+		}
+
+		/// <summary>
+		/// Enable cursors when the mouse is over the display.
+		/// </summary>
+		/// <param name="sender">The event sender.</param>
+		/// <param name="e">The event parameters.</param>
+		private void WaveformPanel_MouseEnter(object sender, EventArgs e)
+		{
+			drawCursors = true;
+			quality = SmoothingMode.HighSpeed;
+			Refresh();
+		}
+
+		/// <summary>
+		/// Disable the cursors when the mouse is not over the display.
+		/// </summary>
+		/// <param name="sender">The event sender.</param>
+		/// <param name="e">The event parameters.</param>
+		private void WaveformPanel_MouseLeave(object sender, EventArgs e)
+		{
+			drawCursors = false;
+			quality = SmoothingMode.HighQuality;
+			Refresh();
+		}
+
+		/// <summary>
+		/// Update the cursors as the mouse moves.
+		/// </summary>
+		/// <param name="sender">The event sender.</param>
+		/// <param name="e">The event parameters.</param>
+		private void WaveformPanel_MouseMove(object sender, MouseEventArgs e)
+		{
+			quality = SmoothingMode.HighSpeed;
+			Refresh();
+			timerHover.Start();
+		}
+
+		/// <summary>
+		/// Wait until the mouse has stopped moving before increasing quality.
+		/// </summary>
+		/// <param name="sender">The event sender.</param>
+		/// <param name="e">The event parameters.</param>
+		private void timerHover_Tick(object sender, EventArgs e)
+		{
+			timerHover.Stop();
+			quality = SmoothingMode.HighQuality;
+			Refresh();
+		}
+	}
+}

@@ -1,0 +1,12 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$class_benf_waves_1_1_library_1_1_waveform_format.html" title="A format to which a waveform can be saved. " alt="" coords="5,141,196,182"/>
+<area shape="rect" id="node2" href="$class_benf_waves_1_1_library_1_1_delimited_format.html" title="A simple string&#45;delimited format." alt="" coords="254,23,442,65"/>
+<area shape="rect" id="node5" href="$class_benf_waves_1_1_library_1_1_excel_format.html" title="A format representing Microsoft Excel spreadsheets. " alt="" coords="244,89,452,116"/>
+<area shape="rect" id="node6" href="$class_benf_waves_1_1_library_1_1_rendered_format.html" title="A rendered image format. " alt="" coords="253,141,443,182"/>
+<area shape="rect" id="node7" href="$class_benf_waves_1_1_library_1_1_templated_format.html" title="A format based off of a template text file in a resource. " alt="" coords="251,206,445,247"/>
+<area shape="rect" id="node10" href="$class_benf_waves_1_1_library_1_1_xml_format.html" title="The DSO Nano XML format." alt="" coords="250,272,446,299"/>
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_c_s_v_format.html" title="A simple comma&#45;separated value format." alt="" coords="500,5,703,32"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_t_s_v_format.html" title="A simple tab&#45;separated value format." alt="" coords="501,56,701,83"/>
+<area shape="rect" id="node8" href="$class_benf_waves_1_1_library_1_1_gnuplot_format.html" title="A Gnuplot script format." alt="" coords="512,173,691,214"/>
+<area shape="rect" id="node9" href="$class_benf_waves_1_1_library_1_1_matlab_format.html" title="A format for a Matlab/Octave script containing the data and a basic graph routine. " alt="" coords="515,238,688,279"/>
+</map>

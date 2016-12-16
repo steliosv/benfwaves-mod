@@ -1,0 +1,5 @@
+<map id="BenfWaves.Client.MainForm.OpenFile_Click" name="BenfWaves.Client.MainForm.OpenFile_Click">
+<area shape="rect" id="node2" href="$class_benf_waves_1_1_library_1_1_waveform.html#a23223a1b7af184bd61a2144159a528d9" title="Construct a Waveform by reading an XML file. " alt="" coords="244,39,439,80"/>
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_point.html#a97a051a60889d8076e17b85e0b17a06b" title="The parameterless constructor. " alt="" coords="500,5,668,47"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_waveform.html#a3676523a414600d94405547d03ec9fa6" title="Initialize the series data. " alt="" coords="487,71,681,112"/>
+</map>

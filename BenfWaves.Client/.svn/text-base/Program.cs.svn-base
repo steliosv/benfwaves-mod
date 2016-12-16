@@ -1,0 +1,128 @@
+﻿/** \file
+* \$Rev$
+* 
+* \$Date$
+*
+* \$URL$
+*/
+
+using System;
+using System.IO;
+using System.Windows.Forms;
+
+using BenfWaves.Library;
+
+/// <summary>
+/// The namespace for all Windows Forms client classes.
+/// </summary>
+namespace BenfWaves.Client
+{
+	/// <summary>
+	/// The main application class.
+	/// </summary>
+	static class Program
+	{
+		#region Configuration string
+		/// <summary>
+		/// A string representing the build configuration.
+		/// </summary>
+		public const string configuration =
+			".NET" +
+#if Debug_3_5
+			"3.5 - Debug"
+#elif Debug_4_0
+			"4.0 - Debug"
+#elif Debug_4_5
+ "4.5 - Debug"
+#elif Release_3_5
+			"3.5 - Release"
+#elif Release_4_0
+			"4.0 - Release"
+#elif Release_4_5
+			"4.5 - Release"
+#endif
+            + " - " +
+#if PLATFORM_x86
+			"x86"
+#elif PLATFORM_x64
+			"x64"
+#elif PLATFORM_AnyCPU
+			"AnyCPU"
+#endif
+			;
+		#endregion
+
+		/// <summary>
+		/// The only instance of the main MDI parent window.
+		/// </summary>
+		static MainForm mainform;
+
+		/// <summary>
+		/// The only instance of the main MDI parent window (read-only).
+		/// </summary>
+		public static MainForm MainForm { get { return mainform; } }
+
+		/// <summary>
+		/// The main entry point for the application.
+		/// </summary>
+		[STAThread]
+		static void Main()
+		{
+			// Catch all exceptions and log them.
+			Application.ThreadException +=
+				(s, eargs) => HandleException(eargs.Exception);
+			AppDomain.CurrentDomain.UnhandledException +=
+				(s, eargs) =>
+					HandleException((Exception)eargs.ExceptionObject);
+			Application.SetUnhandledExceptionMode(
+				UnhandledExceptionMode.CatchException);
+
+			RenderedFormat.WaveformToBitmap = waveform =>
+			{
+				WaveformPanel panel =
+					MainForm.WindowForWaveform(waveform).PanelVoltTime;
+				return panel.DrawBitmap();
+			};
+
+			// Create the MDI parent form and close the application after the
+			// form is done.
+			Application.EnableVisualStyles();
+			Application.SetCompatibleTextRenderingDefault(false);
+			mainform = new MainForm();
+			Application.Run(mainform);
+		}
+
+		/// <summary>
+		/// Handle an exception, and save some debug messages to a text file.
+		/// </summary>
+		/// <param name="e">The exception that will be handled.</param>
+		static void HandleException(Exception e)
+		{
+			// Form an error description string including the date, and recurse
+			// through all InnerExceptions to add them to the error string.
+			// Include a stack trace in each.
+			string error = DateTime.Now.ToString() +
+				Environment.NewLine + Environment.NewLine;
+			Exception ein = e;
+			do
+			{
+				error += ein.GetType().ToString() + Environment.NewLine +
+					ein.Message + Environment.NewLine +
+					ein.StackTrace + Environment.NewLine + Environment.NewLine;
+				ein = ein.InnerException;
+			} while (ein != null);
+
+			const string filename = "debug.txt";
+
+			using (FileStream fout =
+				new FileStream(filename, FileMode.Append, FileAccess.Write))
+			using (StreamWriter writer = new StreamWriter(fout))
+				writer.Write(error);
+
+			MessageBox.Show(
+				"An error occured. Debugging information has been saved in " +
+				filename + ".", "Error");
+			Application.Exit();
+		}
+	}
+}

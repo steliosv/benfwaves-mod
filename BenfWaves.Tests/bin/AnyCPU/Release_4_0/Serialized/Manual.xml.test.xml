@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Profile>
+    <attenuation>x1</attenuation>
+    <fileNumber>S003</fileNumber>
+    <firmware>V3.40</firmware>
+    <rinDouble>546000</rinDouble>
+    <sampleCount>4098</sampleCount>
+    <sampleDiv>200us</sampleDiv>
+    <timeDiv>200us</timeDiv>
+    <timeRange>0.032784</timeRange>
+    <triggerKind>EdgeRising</triggerKind>
+    <triggerIndex>1420</triggerIndex>
+    <triggerLevel>3.76V</triggerLevel>
+    <triggerLevelDouble>3.76</triggerLevelDouble>
+    <triggerMode>NORM</triggerMode>
+    <triggerSensitivity>200mV</triggerSensitivity>
+    <voltageDiv>1V</voltageDiv>
+  </Profile>
+  <Point>
+    <seq>1418</seq>
+    <val>-0.04</val>
+  </Point>
+  <Point>
+    <seq>1419</seq>
+    <val>-0.04</val>
+  </Point>
+  <Point>
+    <seq>1420</seq>
+    <val>5.28</val>
+  </Point>
+  <Point>
+    <seq>1421</seq>
+    <val>5.2</val>
+  </Point>
+  <Point>
+    <seq>1422</seq>
+    <val>5.16</val>
+  </Point>
+</Document>

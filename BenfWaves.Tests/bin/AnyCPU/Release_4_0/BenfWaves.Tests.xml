@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BenfWaves.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:BenfWaves.Client.Tests.TestProgram">
+            <summary>Tests for the Program class.</summary>
+        </member>
+        <member name="T:BenfWaves.Library.Tests.TestPropertyExtractor">
+            <summary>
+            Tests for the PropertyExtractor class to extract properties, nested and
+            otherwise.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.Tests.TestPropertyExtractor.TestObject">
+            <summary>
+            A test object whose properties should be detected by the extractor.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Tests.TestPropertyExtractor.TestObject.p1">
+            <summary>A test property.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Tests.TestPropertyExtractor.TestObject.p2">
+            <summary>A test property.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Tests.TestPropertyExtractor.TestObject.nested">
+            <summary>A test nested object property.</summary>
+        </member>
+        <member name="T:BenfWaves.Library.Tests.TestPropertyExtractor.TestObject.NestedObject">
+            <summary>A test nested class type.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Tests.TestPropertyExtractor.TestObject.NestedObject.p3">
+            <summary>A test property.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Tests.TestPropertyExtractor.TestObject.NestedObject.p4">
+            <summary>A test property.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.Tests.TestPropertyExtractor.FillProps">
+            <summary>
+            Test that the property extractor can replace regular properties.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Tests.TestPropertyExtractor.FillNestedProps">
+            <summary>
+            Test that the property extractor can extract nested properties.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.Tests.TestSIValue">
+            <summary>
+            Tests for the SI-notation quantity class.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Tests.TestSIValue.FromFormatted">
+            <summary>
+            Test that SIValue can properly parse strings.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Tests.TestSIValue.FromFormattedLoop">
+            <summary>
+            Test that SIValue can properly parse many strings.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Tests.TestSIValue.FromValue">
+            <summary>
+            Test that SIValue can properly be initialized from values.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.Tests.TestWaveform">
+            <summary>Tests for the Waveform class.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.Tests.TestWaveform.XmlFiles">
+            <summary>All of the sample XML file names.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.Tests.TestWaveform.samplesDir">
+            <summary>
+            The directory to search for XML input files.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.Tests.TestWaveform.serializedDir">
+            <summary>
+            The directory to output serialized waveforms.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Tests.TestWaveform.Serialize">
+            <summary>
+            Test that the waveform can serialize to a file properly.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Tests.TestWaveform.SerializeThreadProc(System.Object)">
+            <summary>
+            The thread procedure to parallelize a serialization test on each
+            sample XML file.
+            </summary>
+            <param name="parameter">The input XML file name.</param>
+        </member>
+        <member name="M:BenfWaves.Library.Tests.TestWaveform.Deserialize">
+            <summary>
+            Test that the waveform can deserialize from a file properly.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Tests.Utils">
+            <summary>
+            A class containing general utilities.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Tests.Utils.configuration">
+            <summary>
+            A string representing the build configuration.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,9 @@
+<map id="BenfWaves.Library.SIValue" name="BenfWaves.Library.SIValue">
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_s_i_angle.html" title="An angle quantity. " alt="" coords="5,469,184,546"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_s_id_b.html" title="A dB quantity. " alt="" coords="208,469,371,546"/>
+<area shape="rect" id="node5" href="$class_benf_waves_1_1_library_1_1_s_i_prefixed_value.html" title="An SI value, with a value, a unit and a magnitude prefix. " alt="" coords="395,373,589,641"/>
+<area shape="rect" id="node6" href="$class_benf_waves_1_1_library_1_1_s_i_freq.html" title="A frequency quantity in SI format." alt="" coords="82,689,254,796"/>
+<area shape="rect" id="node7" href="$class_benf_waves_1_1_library_1_1_s_i_resistance.html" title="A resistance quantity in SI format." alt="" coords="279,689,489,796"/>
+<area shape="rect" id="node8" href="$class_benf_waves_1_1_library_1_1_s_i_time.html" title="A time quantity in SI format." alt="" coords="514,689,689,796"/>
+<area shape="rect" id="node9" href="$class_benf_waves_1_1_library_1_1_s_i_voltage.html" title="A voltage quantity in SI format." alt="" coords="713,689,903,796"/>
+</map>

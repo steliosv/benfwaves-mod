@@ -1,0 +1,6 @@
+<map id="BenfWaves.Library.Tests.TestWaveform.SerializeThreadProc" name="BenfWaves.Library.Tests.TestWaveform.SerializeThreadProc">
+<area shape="rect" id="node2" href="$class_benf_waves_1_1_library_1_1_waveform.html#a23223a1b7af184bd61a2144159a528d9" title="Construct a Waveform by reading an XML file. " alt="" coords="277,37,472,79"/>
+<area shape="rect" id="node5" href="$class_benf_waves_1_1_library_1_1_waveform_format.html#acadca34ff0008344bd3fa83431276436" title="Save a waveform to a stream. " alt="" coords="279,103,470,144"/>
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_point.html#a97a051a60889d8076e17b85e0b17a06b" title="The parameterless constructor. " alt="" coords="533,5,701,47"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_waveform.html#a3676523a414600d94405547d03ec9fa6" title="Initialize the series data. " alt="" coords="520,71,715,112"/>
+</map>

@@ -1,0 +1,6 @@
+var searchData=
+[
+  ['unittoindex',['UnitToIndex',['../class_benf_waves_1_1_library_1_1_series_dimension.html#a95a87eeadeec3bd265bcf8471335edb1',1,'BenfWaves.Library.SeriesDimension.UnitToIndex()'],['../class_benf_waves_1_1_library_1_1_horz_series_dimension.html#ab3c6c0b9ba8e4a2909d00e984506970b',1,'BenfWaves.Library.HorzSeriesDimension.UnitToIndex()'],['../class_benf_waves_1_1_library_1_1_vert_series_dimension.html#a8ad86fa485d3679775c1171c3731f011',1,'BenfWaves.Library.VertSeriesDimension.UnitToIndex()']]],
+  ['unittoindexlimited',['UnitToIndexLimited',['../class_benf_waves_1_1_library_1_1_series_dimension.html#aae7b9a9a9e5015fd6620b4643cf43f69',1,'BenfWaves.Library.SeriesDimension.UnitToIndexLimited()'],['../class_benf_waves_1_1_library_1_1_horz_series_dimension.html#a5928b94b883b86cda3c39f24215439cb',1,'BenfWaves.Library.HorzSeriesDimension.UnitToIndexLimited()'],['../class_benf_waves_1_1_library_1_1_vert_series_dimension.html#a88ed5915ad012a03ab1848b316fd223e',1,'BenfWaves.Library.VertSeriesDimension.UnitToIndexLimited()']]],
+  ['unittopixel',['UnitToPixel',['../class_benf_waves_1_1_client_1_1_display_dimension.html#afed730edc509197a331c13a2f71a27b5',1,'BenfWaves::Client::DisplayDimension']]]
+];

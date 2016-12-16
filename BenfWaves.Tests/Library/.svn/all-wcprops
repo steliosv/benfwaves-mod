@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/svn/!svn/ver/149/branches/basic-vs2012/BenfWaves.Tests/Library
+END
+TestPropertyExtractor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/svn/!svn/ver/146/branches/basic-vs2012/BenfWaves.Tests/Library/TestPropertyExtractor.cs
+END
+TestWaveform.cs
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/svn/!svn/ver/149/branches/basic-vs2012/BenfWaves.Tests/Library/TestWaveform.cs
+END
+TestSIValue.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/146/branches/basic-vs2012/BenfWaves.Tests/Library/TestSIValue.cs
+END

@@ -1,0 +1,26 @@
+﻿originalFile = '{Profile.filename}';
+fileNumber   = '{Profile.fileNumber}';
+firmware     = '{Profile.firmware}';
+
+voltageDiv   = {Profile.voltageDivDouble};
+attenuation  = {Profile.attenuationDouble};
+vsens        = {Profile.vsensDouble};
+vdiffMax     = {Profile.vdiffMaxDouble};
+rin          = {Profile.rinDouble};
+
+timeDiv      = {Profile.timeDivDouble};
+timeRange    = {Profile.timeRangeDouble};
+sampleCount  = {Profile.sampleCount};
+firstIndex   = {FirstIndex};
+samplingFreq = sampleCount / timeRange;
+sampPerDiv   = samplingFreq * timeDiv;
+divRange     = timeRange / timeDiv;
+fastSampMode = '{Profile.fastSamplingModeString}';
+
+triggerIndex = {Profile.triggerIndex};
+triggerKind  = '{Profile.triggerKindString}';
+triggerMode  = '{Profile.triggerModeString}';
+triggerLevel = {Profile.triggerLevelDouble};
+triggerSens  = {Profile.triggerSensDouble};
+triggerLow   = triggerLevel - triggerSens;
+triggerHigh  = triggerLevel + triggerSens;

@@ -1,0 +1,26 @@
+﻿/** \file
+* \$Rev$
+* 
+* \$Date$
+*
+* \$URL$
+*/
+
+using System.Windows.Forms;
+
+namespace BenfWaves.Client
+{
+	/// <summary>
+	/// A label in a table that is centered vertically and docked.
+	/// </summary>
+	public partial class TableLabel : Label
+	{
+		/// <summary>
+		/// The constructor. Nothing special.
+		/// </summary>
+		public TableLabel()
+		{
+			InitializeComponent();
+		}
+	}
+}

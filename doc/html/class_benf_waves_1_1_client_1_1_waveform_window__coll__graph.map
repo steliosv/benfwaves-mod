@@ -1,0 +1,5 @@
+<map id="BenfWaves.Client.WaveformWindow" name="BenfWaves.Client.WaveformWindow">
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_waveform.html" title="A single waveform." alt="" coords="101,388,292,553"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_series.html" title="A waveform data series." alt="" coords="111,248,282,325"/>
+<area shape="rect" id="node5" href="$class_benf_waves_1_1_library_1_1_series_dimension.html" title="One dimension of a data series." alt="" coords="111,5,282,171"/>
+</map>

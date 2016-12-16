@@ -1,0 +1,11 @@
+<map id="BenfWaves.Library.WaveformFormat" name="BenfWaves.Library.WaveformFormat">
+<area shape="rect" id="node2" href="$class_benf_waves_1_1_library_1_1_delimited_format.html" title="A simple string&#45;delimited format." alt="" coords="125,263,313,355"/>
+<area shape="rect" id="node5" href="$class_benf_waves_1_1_library_1_1_excel_format.html" title="A format representing Microsoft Excel spreadsheets. " alt="" coords="337,248,545,369"/>
+<area shape="rect" id="node6" href="$class_benf_waves_1_1_library_1_1_rendered_format.html" title="A rendered image format. " alt="" coords="569,219,759,399"/>
+<area shape="rect" id="node7" href="$class_benf_waves_1_1_library_1_1_templated_format.html" title="A format based off of a template text file in a resource. " alt="" coords="783,233,977,384"/>
+<area shape="rect" id="node10" href="$class_benf_waves_1_1_library_1_1_xml_format.html" title="The DSO Nano XML format." alt="" coords="1002,263,1198,355"/>
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_c_s_v_format.html" title="A simple comma&#45;separated value format." alt="" coords="5,454,208,561"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_t_s_v_format.html" title="A simple tab&#45;separated value format." alt="" coords="232,454,432,561"/>
+<area shape="rect" id="node8" href="$class_benf_waves_1_1_library_1_1_gnuplot_format.html" title="A Gnuplot script format." alt="" coords="689,447,868,568"/>
+<area shape="rect" id="node9" href="$class_benf_waves_1_1_library_1_1_matlab_format.html" title="A format for a Matlab/Octave script containing the data and a basic graph routine. " alt="" coords="892,447,1068,568"/>
+</map>

@@ -1,0 +1,1 @@
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Client\bin\AnyCPU\Debug_3_5\BenfWaves.Client.exe.config

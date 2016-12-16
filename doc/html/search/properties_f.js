@@ -1,0 +1,7 @@
+var searchData=
+[
+  ['unit',['Unit',['../class_benf_waves_1_1_library_1_1_s_i_value.html#a3554e3492642d4760f3f6bd2a032b711',1,'BenfWaves::Library::SIValue']]],
+  ['unitinternal',['UnitInternal',['../class_benf_waves_1_1_library_1_1_s_i_value.html#a442e7dd2d6e595f4546a5e4ecb4282f8',1,'BenfWaves.Library.SIValue.UnitInternal()'],['../class_benf_waves_1_1_library_1_1_s_id_b.html#a2f0f821f2adb62484b64ee62e0df570a',1,'BenfWaves.Library.SIdB.UnitInternal()'],['../class_benf_waves_1_1_library_1_1_s_i_angle.html#a973dafc95475d7ba0ecd2e28cada81b1',1,'BenfWaves.Library.SIAngle.UnitInternal()'],['../class_benf_waves_1_1_library_1_1_s_i_voltage.html#a9ac4c4880abda9ef8734824ce5618c32',1,'BenfWaves.Library.SIVoltage.UnitInternal()'],['../class_benf_waves_1_1_library_1_1_s_i_time.html#a25fe67126264cfe1511df9dd34509fa9',1,'BenfWaves.Library.SITime.UnitInternal()'],['../class_benf_waves_1_1_library_1_1_s_i_freq.html#acdb57139fc22fdf33b04624c862eb248',1,'BenfWaves.Library.SIFreq.UnitInternal()'],['../class_benf_waves_1_1_library_1_1_s_i_resistance.html#a3968a6f0cc7da58e4c055f244e9a7d96',1,'BenfWaves.Library.SIResistance.UnitInternal()']]],
+  ['unitperdiv',['UnitPerDiv',['../class_benf_waves_1_1_client_1_1_display_dimension.html#aed3ddb84568f8dab43a5a7a055ddd162',1,'BenfWaves::Client::DisplayDimension']]],
+  ['unitperpixel',['UnitPerPixel',['../class_benf_waves_1_1_client_1_1_display_dimension.html#a2d47ec3d803da932c0f92d55e93d78df',1,'BenfWaves::Client::DisplayDimension']]]
+];

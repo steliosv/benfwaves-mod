@@ -1,0 +1,7 @@
+<map id="BenfWaves.Library.SIPrefixedValue" name="BenfWaves.Library.SIPrefixedValue">
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_s_i_freq.html" title="A frequency quantity in SI format." alt="" coords="5,689,177,796"/>
+<area shape="rect" id="node5" href="$class_benf_waves_1_1_library_1_1_s_i_resistance.html" title="A resistance quantity in SI format." alt="" coords="202,689,413,796"/>
+<area shape="rect" id="node6" href="$class_benf_waves_1_1_library_1_1_s_i_time.html" title="A time quantity in SI format." alt="" coords="437,689,612,796"/>
+<area shape="rect" id="node7" href="$class_benf_waves_1_1_library_1_1_s_i_voltage.html" title="A voltage quantity in SI format." alt="" coords="636,689,827,796"/>
+<area shape="rect" id="node2" href="$class_benf_waves_1_1_library_1_1_s_i_value.html" title="A basic formatted quantity. " alt="" coords="362,131,469,325"/>
+</map>

@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestLists xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestList name="Lists of Tests" id="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <RunConfiguration id="f52332f4-8003-4c2e-bd38-2802ab00c9bd" name="Local" storage="local.testsettings" type="Microsoft.VisualStudio.TestTools.Common.TestRunConfiguration, Microsoft.VisualStudio.QualityTools.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  </TestList>
+  <TestList name="Client tests" id="9a192422-441c-476f-88c8-2ad35028837d" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <Description>Tests on classes in the BenfWaves.Client namespace</Description>
+  </TestList>
+  <TestList name="Library tests" id="c3e86aec-e6e1-4487-8b69-ff6497b33508" parentListId="8c43106b-9dc1-4907-a29f-aa66a61bf5b6">
+    <Description>Tests on classes in the BenfWaves.Library namespace</Description>
+    <TestLinks>
+      <TestLink id="7bfcfc49-9e17-27e5-973c-3b9826ce82d5" name="FromValue" storage="benfwaves.tests\bin\x86\debug-4.0\benfwaves.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="8e81bbc3-74b0-bbe9-6fb9-6a5c71e40d7a" name="FillProps" storage="benfwaves.tests\bin\x86\debug-4.0\benfwaves.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="ea768362-a003-1694-01cb-01975b92e360" name="Deserialize" storage="benfwaves.tests\bin\x86\debug-4.0\benfwaves.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="1b807b24-640f-7398-dba8-46593e1fbccc" name="Serialize" storage="benfwaves.tests\bin\x86\debug-4.0\benfwaves.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="1eb55bd6-682e-2b77-04bb-983a4bcd1336" name="FromFormatted" storage="benfwaves.tests\bin\x86\debug-4.0\benfwaves.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+      <TestLink id="421bfa4a-3af4-22f1-f881-76f1ffc74aa4" name="FillNestedProps" storage="benfwaves.tests\bin\x86\debug-4.0\benfwaves.tests.dll" type="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestElement, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.ObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+    </TestLinks>
+  </TestList>
+</TestLists>

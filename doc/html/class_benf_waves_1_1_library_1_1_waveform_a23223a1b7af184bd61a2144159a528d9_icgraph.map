@@ -1,0 +1,5 @@
+<map id="BenfWaves.Library.Waveform.FromXMLFile" name="BenfWaves.Library.Waveform.FromXMLFile">
+<area shape="rect" id="node2" href="$class_benf_waves_1_1_client_1_1_main_form.html#a7de305601b30524926d9cb9db06e5bb9" title="Open a file. " alt="" coords="265,5,455,47"/>
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_tests_1_1_test_waveform.html#aff50bc43dab7ebdf489734612a81ec07" title="The thread procedure to parallelize a serialization test on each sample XML file. ..." alt="" coords="248,71,472,112"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_tests_1_1_test_waveform.html#aeea5181bddb3f4b82b4e00e48eefb15b" title="Test that the waveform can deserialize from a file properly. " alt="" coords="274,136,446,177"/>
+</map>

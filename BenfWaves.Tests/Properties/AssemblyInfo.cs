@@ -1,0 +1,35 @@
+﻿/** \file
+* \$Rev: 63 $
+* 
+* \$Date: 2011-03-29 18:13:13 +0000 (Tue, 29 Mar 2011) $
+*
+* \$URL: http://benfwaves.googlecode.com/svn/branches/basic-vs2012/BenfWaves.Tests/Properties/AssemblyInfo.cs $
+*/
+
+using System.Reflection;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+
+using BenfWaves.Tests;
+
+// These are laid out in the order they appear in the executable properties
+// from Windows Explorer.
+
+// File description
+[assembly: AssemblyTitle("BenfWaves.Tests")]
+// File version
+[assembly: AssemblyFileVersion("1.0.0.0")]
+// Product name
+[assembly: AssemblyProduct("BenfWaves")]
+// Product version
+[assembly: AssemblyInformationalVersion(Utils.configuration)]
+// Copyright
+[assembly: AssemblyCopyright("Copyright © Greg Toombs 2011")]
+
+// Setting ComVisible to false makes the types in this assembly not visible 
+// to COM components.  If you need to access a type in this assembly from 
+// COM, set the ComVisible attribute to true on that type.
+[assembly: ComVisible(false)]
+
+// The following GUID is for the ID of the typelib if this project is exposed to COM
+[assembly: Guid("9b4de229-9d70-4b6c-8c5b-7acb911e82bc")]

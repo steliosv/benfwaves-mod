@@ -1,0 +1,28 @@
+﻿/** \file
+* \$Rev$
+* 
+* \$Date$
+*
+* \$URL$
+*/
+
+using System;
+using System.Windows.Forms;
+
+namespace BenfWaves.Client
+{
+	/// <summary>
+	/// A text box that is docked in a table, that is read-only, and whose
+	/// background appears enabled.
+	/// </summary>
+	public partial class ReadOnlyTableTextbox : TextBox
+	{
+		/// <summary>
+		/// The constructor. Nothing special.
+		/// </summary>
+		public ReadOnlyTableTextbox()
+		{
+			InitializeComponent();
+		}
+	}
+}

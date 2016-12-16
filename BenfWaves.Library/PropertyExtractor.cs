@@ -1,0 +1,54 @@
+﻿/** \file
+* \$Rev: 140 $
+* 
+* \$Date: 2012-02-18 16:41:11 +0000 (Sat, 18 Feb 2012) $
+*
+* \$URL: http://benfwaves.googlecode.com/svn/branches/basic-vs2012/BenfWaves.Library/PropertyExtractor.cs $
+*/
+
+using System;
+using System.Reflection;
+
+namespace BenfWaves.Library
+{
+	/// <summary>
+	/// A utility class that extracts property values from an object.
+	/// </summary>
+	public class PropertyExtractor
+	{
+		/// <summary>
+		/// The character to separate properties in a property path.
+		/// </summary>
+		static readonly char[] propsplit = new char[] { '.' };
+
+		/// <summary>
+		/// Extract a property from an object.
+		/// </summary>
+		/// <typeparam name="SourceType">The type of the source object.</typeparam>
+		/// <param name="proppath">The property path (SomeProp.SomeSubProp).</param>
+		/// <param name="topSrc">The source object.</param>
+		/// <returns>The retrieved property, as a string.</returns>
+		static public string Extract<SourceType>(string proppath, SourceType topSrc)
+		{
+			Type topSrcType = typeof(SourceType);
+
+			string[] props = proppath.Split(propsplit);
+			object src = topSrc;
+			PropertyInfo prop;
+			Type srctype = topSrcType;
+
+			// Loop through each portion of the property path (separated by '.')
+			foreach (string propname in props)
+			{
+				if (src == null)
+					return null;
+				prop = srctype.GetProperty(propname);
+				if (prop == null)
+					return null;
+				src = prop.GetValue(src, null);
+				srctype = prop.PropertyType;
+			}
+			return src.ToString();
+		}
+	}
+}

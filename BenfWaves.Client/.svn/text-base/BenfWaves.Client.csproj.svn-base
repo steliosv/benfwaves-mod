@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ApplicationIcon>Resources\Tango Icons\utilities-system-monitor.ico</ApplicationIcon>
+    <AssemblyName>BenfWaves.Client</AssemblyName>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <NoWarn>1587</NoWarn>
+    <OutputType>WinExe</OutputType>
+    <PlatformTarget>$(Platform)</PlatformTarget>
+    <ProjectGuid>{12EFDB95-4054-4AB3-BBB4-92C85AFDABD4}</ProjectGuid>
+    <RootNamespace>$(AssemblyName)</RootNamespace>
+    <WarningLevel>4</WarningLevel>
+    <OutputPath>bin\$(Platform)\$(Configuration)\</OutputPath>
+    <DocumentationFile>$(OutputPath)$(AssemblyName).xml</DocumentationFile>
+    <StartWorkingDirectory>$(SolutionDir)</StartWorkingDirectory>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_3_5|Any CPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_4_0|Any CPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug_4_5|Any CPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_3_5|Any CPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_4_0|Any CPU' " />
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release_4_5|Any CPU' " />
+  <PropertyGroup Condition=" '$(Platform)' == 'x86' ">
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'Any CPU' Or '$(Platform)' == 'x64' ">
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug_3_5' Or '$(Configuration)' == 'Debug_4_0' Or '$(Configuration)' == 'Debug_4_5'">
+    <Optimize>false</Optimize>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineConstants>$(Configuration);PLATFORM_$(Platform);TRACE;DEBUG</DefineConstants>
+    <RunCodeAnalysis>true</RunCodeAnalysis>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release_3_5' Or '$(Configuration)' == 'Release_4_0' Or '$(Configuration)' == 'Release_4_5'">
+    <Optimize>true</Optimize>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <DefineConstants>$(Configuration);PLATFORM_$(Platform);RELEASE</DefineConstants>
+    <RunCodeAnalysis>false</RunCodeAnalysis>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug_3_5' Or '$(Configuration)' == 'Release_3_5'">
+    <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug_4_0' Or '$(Configuration)' == 'Release_4_0'">
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug_4_5' Or '$(Configuration)' == 'Release_4_5'">
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BenfWaves.Library\BenfWaves.Library.csproj">
+      <Project>{39CA134E-83B0-4543-A654-F0CE8F4173F0}</Project>
+      <Name>BenfWaves.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DisplayDimension.cs" />
+    <Compile Include="TableLabel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TableLabel.Designer.cs">
+      <DependentUpon>TableLabel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadOnlyComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReadOnlyComboBox.Designer.cs">
+      <DependentUpon>ReadOnlyComboBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ReadOnlyTableTextbox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ReadOnlyTableTextbox.Designer.cs">
+      <DependentUpon>ReadOnlyTableTextbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TriggeredWaveformPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="TriggeredWaveformPanel.Designer.cs">
+      <DependentUpon>TriggeredWaveformPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaveformPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="WaveformPanel.designer.cs">
+      <DependentUpon>WaveformPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="WaveformWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="WaveformWindow.Designer.cs">
+      <DependentUpon>WaveformWindow.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="app.config" />
+    <None Include="Properties\DataSources\BenfWaves.Library.Waveform.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\document-open.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\document-print.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\document-print-preview.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\document-properties.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\document-save.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\edit-clear.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\edit-copy.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\edit-cut.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\go-home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\help-browser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\internet-web-browser.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\preferences-system-windows.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\process-stop.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\system-log-out.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Tango Icons\utilities-system-monitor.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Tango Icons\utilities-system-monitor.16.png" />
+    <Content Include="Resources\Tango Icons\utilities-system-monitor.32.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

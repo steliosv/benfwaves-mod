@@ -1,0 +1,1151 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BenfWaves.Library</name>
+    </assembly>
+    <members>
+        <member name="T:BenfWaves.Library.Profile">
+            <summary>
+            The characteristics of a waveform.
+            This is annotated for both Linq mapping (Table, Column) for Excel
+            export and XmlSerializer (XmlIgnore, XmlElement).
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.Profile.fastTimeLimit">
+            <summary>
+            At time divs at or below this quantity, the scope operates in fast
+            sampling mode only.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.attenuationDouble">
+            <summary>The attenuation of the signal</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.attenuationString">
+            <summary>
+            The attenuation of the signal, formatted as a string beginning with
+            "x"
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.divRange">
+            <summary>
+            The total number of divisions visible in the waveform.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.fastSamplingModeEnum">
+            <summary>
+            Whether the scope is in fast sampling mode.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.fastSamplingModeString">
+            <summary>
+            Whether the scope is in fast sampling mode. Formatted as a string.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.fileNumber">
+            <summary>The file name on the SD card.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.filename">
+            <summary>
+            The most recently accessed filename associated with this waveform.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.firmware">
+            <summary>The firmware version.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.hsens">
+            <summary>
+            The horizontal sensitivity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.parent">
+            <summary>The waveform corresponding to this profile.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.rinSI">
+            <summary>
+            The DC input resistance, formatted as an SI quantity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.rinDouble">
+            <summary>The DC input resistance.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.sampleCount">
+            <summary>The number of samples in this waveform.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.sampleDiv">
+            <summary>
+            "The sampleDiv entry is used by the XML import utility to
+            distinguish between fast and standard buffer modes. timeDiv is as
+            in previous versions the T/Div we select on the Nano (used for
+            display scaling) whereas sampleDiv is the actual sampling rate used
+            during acquisitions. They will be different when Fast mode is used,
+            but have the same value for Post and Equal modes."
+            
+            Note that this is not actually the number of samples per division!
+            
+            This field is not present in the XML prior to firmware v3.61. As a
+            result, this field is not displayed in any export data or on the
+            form. If it is present, it is used to determine FastSamplingMode.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.samplesPerDiv">
+            <summary>
+            This is the actual number of samples per division, calculated from
+            the sampling frequency and the selected time scale.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.samplingFreq">
+            <summary>The sampling frequency (calculated).</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.timeDivSI">
+            <summary>The time per horizontal division.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.timeDivDouble">
+            <summary>
+            The time per horizontal division, formatted as a double.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.timeRangeDouble">
+            <summary>The time that this waveform covers.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.timeRangeSI">
+            <summary>The time range, as an SI quantity.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.timeStart">
+            <summary>
+            The time (relative to the trigger) at which the waveform starts.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerKindEnum">
+            <summary>
+            The trigger kind of the waveform (rising or falling).
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerKindString">
+            <summary>
+            The trigger kind of the waveform (rising or falling). Formatted as
+            a string.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerHigh">
+            <summary>The high side of the trigger range.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerIndex">
+            <summary>
+            The index at which this trigger capture was started.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerLevelSI">
+            <summary>The trigger level, in volts.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerLevelDouble">
+            <summary>
+            The trigger level, in volts. Formatted as a double.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerLow">
+            <summary>The low side of the trigger range.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerModeEnum">
+            <summary>
+            The trigger mode of the waveform (normal, auto or single).
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerModeString">
+            <summary>
+            The trigger mode of the waveform (normal, auto or single).
+            Formatted as a string.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerSensSI">
+            <summary>The trigger sensitivity, in volts.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.triggerSensDouble">
+            <summary>The trigger sensitivity, in volts.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.vdiffMaxSI">
+            <summary>
+            The maximum allowable differential voltage, formatted as an SI
+            quantity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.vdiffMaxDouble">
+            <summary>
+            The maximum allowable differential voltage.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.voltageDivSI">
+            <summary>
+            The voltage per vertical division, formatted as an SI quantity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.voltageDivDouble">
+            <summary>The voltage per vertical division.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.VscaleProps">
+            <summary>
+            The properties that are determined by the attenuation and v/div settings.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.vsensSI">
+            <summary>
+            The voltage sensitivity, formatted as an SI quantity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Profile.vsensDouble">
+            <summary>The voltage sensitivity.</summary>
+        </member>
+        <member name="T:BenfWaves.Library.TriggerMode">
+            <summary>
+            The enumeration of all trigger modes possible for a profile.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.TriggerMode.NORM">
+            <summary>
+            Continunously search for a trigger and don't update the display
+            unless a trigger is found
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.TriggerMode.AUTO">
+            <summary>
+            Search for a trigger, forcing a trigger after 100ms if no trigger
+            is found.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.TriggerMode.SING">
+            <summary>
+            Continuously search for a trigger; do not initiate a new
+            acquisition cycle after a successful trigger.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.TriggerMode.SCAN">
+            <summary>
+            "In SCAN mode, data acquisition runs continuously and the input
+            signal is progressively displayed from left to right in real-time
+            disregarding other trigger options."
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.TriggerMode.FIT">
+            <summary>
+            "In FIT trigger mode, the Nano will automatically identify the
+            type of waveform and adjust the settings to produce a usable
+            display of the input signal."
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.TriggerKind">
+            <summary>
+            The enumeration of trigger kinds possible for a waveform.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.TriggerKind.EdgeRising">
+            <summary>Trigger on the rising edge of a waveform</summary>
+        </member>
+        <member name="F:BenfWaves.Library.TriggerKind.EdgeFalling">
+            <summary>Trigger on the falling edge of a waveform</summary>
+        </member>
+        <member name="T:BenfWaves.Library.FastSamplingMode">
+            <summary>
+            The different fast sampling mode states possible for a waveform.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.FastSamplingMode.Disabled">
+            <summary>Disabled by the user.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.FastSamplingMode.Enabled">
+            <summary>Enabled by the user.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.FastSamplingMode.DisabledByTimescale">
+            <summary>Forced off due to the timescale.</summary>
+        </member>
+        <member name="T:BenfWaves.Library.VscaleProps">
+            <summary>
+            A set of properties for a range of V/div settings.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.VscaleProps.AllProps">
+            <summary>
+            The array of all possible properties for certain ranges of voltage
+            settings.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.VscaleProps.Attenuation">
+            <summary>
+            The probe attenuation for which these properties apply.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.VscaleProps.VdivMin">
+            <summary>
+            The minimum v/div for which these properties apply.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.VscaleProps.VdivMax">
+            <summary>
+            The maximum v/div for which these properties apply.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.VscaleProps.Sensitivity">
+            <summary>
+            The voltage sensitivity on this setting.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.VscaleProps.VdiffMax">
+            <summary>
+            The maximum allowable differential voltage on this setting.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.VscaleProps.Rin">
+            <summary>
+            The DC input resistance on this setting.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.VscaleProps.#ctor(System.Double,System.Double,System.Double,System.Double,System.Double,System.Double)">
+            <summary>The constructor.</summary>
+            <param name="attenuation">
+            The probe attenuation for which these properties apply.
+            </param>
+            <param name="vdivmin">
+            The minimum v/div for which these properties apply.
+            </param>
+            <param name="vdivmax">
+            The maximum v/div for which these properties apply.
+            </param>
+            <param name="sensitivity">
+            The voltage sensitivity on this setting.
+            </param>
+            <param name="vdiffmax">
+            The maximum allowablw differential voltage on this setting.
+            </param>
+            <param name="rin">
+            The DC input resistance on this setting.
+            </param>
+        </member>
+        <member name="T:BenfWaves.Library.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Properties.Resources.ExcelTemplate">
+            <summary>
+              Looks up a localized resource of type System.Byte[].
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Properties.Resources.GnuplotTemplate">
+             <summary>
+               Looks up a localized string similar to #!/usr/bin/gnuplot -p
+            # Generated by BenfWaves - http://code.google.com/p/benfwaves
+            # Tested on gnuplot 4.4
+            
+            reset
+            
+            # Profile variables
+            
+            {TemplateProfile}
+            
+            # Plot data
+            
+            set title &apos;DSO Nano Waveform: &apos;.fileNumber
+            set xlabel &apos;Time (relative to trigger)&apos;
+            set ylabel &apos;Voltage&apos;
+            set grid
+            set style line 1 linetype 1 linecolor rgb &apos;blue&apos; linewidth 2 # Solid
+            set style line 2 linetype 0 linecolor rgb &apos;red&apos;  linewidth 2 # Dotted
+            
+            if (triggerSens == 0) plot                             \
+                triggerLe [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Properties.Resources.MatlabTemplate">
+             <summary>
+               Looks up a localized string similar to % #!/usr/bin/octave --persist
+            % Generated by BenfWaves - http://code.google.com/p/benfwaves
+            % Tested on octave 3.2.4, Matlab 7.9.0 (R2009B)
+            
+            % Profile variables
+            
+            {TemplateProfile}
+            
+            % Data series
+            
+            voltages = [ ...
+            {DataLines}
+            ];
+            
+            npoints = length(voltages);
+            times = ((0:(npoints-1))&apos; + firstIndex - triggerIndex) / samplingFreq;
+            endtimes = [times(1), times(end)];
+            triglowpts = [triggerLow, triggerLow];
+            trighighpts = [triggerHigh, triggerHigh];
+            
+            % Plot the data
+            
+            fname = [&apos;DSO Nano Waveform: [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Properties.Resources.TemplateProfile">
+             <summary>
+               Looks up a localized string similar to originalFile = &apos;{Profile.filename}&apos;;
+            fileNumber   = &apos;{Profile.fileNumber}&apos;;
+            firmware     = &apos;{Profile.firmware}&apos;;
+            
+            voltageDiv   = {Profile.voltageDivDouble};
+            attenuation  = {Profile.attenuationDouble};
+            vsens        = {Profile.vsensDouble};
+            vdiffMax     = {Profile.vdiffMaxDouble};
+            rin          = {Profile.rinDouble};
+            
+            timeDiv      = {Profile.timeDivDouble};
+            timeRange    = {Profile.timeRangeDouble};
+            sampleCount  = {Profile.sampleCount};
+            firstIndex   = {FirstIndex};
+            samplingFreq = sampleCount / tim [rest of string was truncated]&quot;;.
+             </summary>
+        </member>
+        <member name="T:BenfWaves.Library.PropertyExtractor">
+            <summary>
+            A utility class that extracts property values from an object.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.PropertyExtractor.propsplit">
+            <summary>
+            The character to separate properties in a property path.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.PropertyExtractor.Extract``1(System.String,``0)">
+            <summary>
+            Extract a property from an object.
+            </summary>
+            <typeparam name="SourceType">The type of the source object.</typeparam>
+            <param name="proppath">The property path (SomeProp.SomeSubProp).</param>
+            <param name="topSrc">The source object.</param>
+            <returns>The retrieved property, as a string.</returns>
+        </member>
+        <member name="T:BenfWaves.Library.SeriesDimension">
+            <summary>One dimension of a data series.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.SeriesDimension.data">
+            <summary>The data for this series.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.SeriesDimension.GetUnitRange">
+            <summary>
+            Get the range of the waveform quantity associated with this
+            dimension.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.SeriesDimension.GetUnitStart">
+            <summary>
+            Get the start of the waveform quantity associated with this
+            dimension.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.SeriesDimension.GetNewSIValue">
+            <summary>
+            Get a new instance of an SIValue to properly format a waveform
+            quantity associated with this dimension.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.SeriesDimension.UnitToIndex(System.Double)">
+            <summary>
+            Convert a waveform quantity to an array index.
+            </summary>
+            <param name="unit">A waveform quantity.</param>
+            <returns>An array index.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.SeriesDimension.UnitToIndexLimited(System.Double,System.Int32,System.Int32)">
+            <summary>
+            Convert a waveform quantity to an array index.
+            </summary>
+            <param name="unit">A waveform quantity.</param>
+            <param name="imin">The minimum index to search.</param>
+            <param name="imax">The maximum index to search.</param>
+            <returns>An array index.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.SeriesDimension.IndexToUnit(System.Double)">
+            <summary>
+            Convert an array index to a waveform quantity.
+            </summary>
+            <param name="index">An array index.</param>
+            <returns>A waveform quantity.</returns>
+        </member>
+        <member name="T:BenfWaves.Library.HorzSeriesDimension">
+            <summary>
+            The horizontal dimension of a waveform series.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.HorzSeriesDimension.UnitToIndex(System.Double)">
+            <summary>
+            Convert a waveform quantity to an array index.
+            </summary>
+            <param name="unit">A waveform quantity.</param>
+            <returns>An array index.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.HorzSeriesDimension.UnitToIndexLimited(System.Double,System.Int32,System.Int32)">
+            <summary>
+            Convert a waveform quantity to an array index.
+            </summary>
+            <param name="unit">A waveform quantity.</param>
+            <param name="imin">The minimum index to search.</param>
+            <param name="imax">The maximum index to search.</param>
+            <returns>An array index.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.HorzSeriesDimension.IndexToUnit(System.Double)">
+            <summary>
+            Convert an array index to a waveform quantity.
+            </summary>
+            <param name="index">An array index.</param>
+            <returns>A waveform quantity.</returns>
+        </member>
+        <member name="T:BenfWaves.Library.VertSeriesDimension">
+            <summary>
+            The vertical dimension of a waveform series.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.VertSeriesDimension.UnitToIndex(System.Double)">
+            <summary>
+            Convert a waveform quantity to an array index.
+            </summary>
+            <param name="unit">A waveform quantity.</param>
+            <returns>An array index.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.VertSeriesDimension.UnitToIndexLimited(System.Double,System.Int32,System.Int32)">
+            <summary>
+            Convert a waveform quantity to an array index.
+            </summary>
+            <param name="unit">A waveform quantity.</param>
+            <param name="imin">The minimum index to search.</param>
+            <param name="imax">The maximum index to search.</param>
+            <returns>An array index.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.VertSeriesDimension.IndexToUnit(System.Double)">
+            <summary>
+            Convert an array index to a waveform quantity.
+            </summary>
+            <param name="index">An array index.</param>
+            <returns>A waveform quantity.</returns>
+        </member>
+        <member name="T:BenfWaves.Library.Series">
+            <summary>A waveform data series.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.Series.data">
+            <summary>The raw data.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.Series.DimHorz">
+            <summary>The horizontal dimension for the series.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.Series.DimVert">
+            <summary>The vertical dimension for the series.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.Series.#ctor(System.Double[],BenfWaves.Library.HorzSeriesDimension,BenfWaves.Library.VertSeriesDimension)">
+            <summary>The constructor.</summary>
+            <param name="data">The series data array.</param>
+            <param name="dimHorz">The horizontal dimension.</param>
+            <param name="dimVert">The vertical dimension.</param>
+        </member>
+        <member name="T:BenfWaves.Library.SIValue">
+            <summary>
+            A basic formatted quantity.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.SIValue.val">
+            <summary>
+            The quantity's value.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.SIValue.parser">
+            <summary>
+            A regular expression to parse formatted strings.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIValue.UnitInternal">
+            <summary>The unit of the quantity (V for volts, etc.)</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIValue.Unit">
+            <summary>The unit of the quantity (V for volts, etc.)</summary>
+        </member>
+        <member name="M:BenfWaves.Library.SIValue.ToString">
+            <summary>
+            Represent the SI quantity as a string.
+            </summary>
+            <returns>The SI quantity, formatted as a string</returns>
+        </member>
+        <member name="P:BenfWaves.Library.SIValue.Value">
+            <summary>
+            The quantity, as a double.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIValue.Formatted">
+            <summary>
+            The quantity, formatted as a string.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.SIValue.System#Xml#Serialization#IXmlSerializable#GetSchema">
+            <summary>
+            This method is reserved and should not be used. When implementing the
+            IXmlSerializable interface, you should return null (Nothing in
+            Visual Basic) from this method, and instead, if specifying a custom
+            schema is required, apply the
+            System.Xml.Serialization.XmlSchemaProviderAttribute to the class.
+            </summary>
+            <returns>
+            An System.Xml.Schema.XmlSchema that describes the XML
+            representation of the object that is produced by the
+            System.Xml.Serialization.IXmlSerializable.WriteXml(System.Xml.XmlWriter)
+            method and consumed by the
+            System.Xml.Serialization.IXmlSerializable.ReadXml(System.Xml.XmlReader)
+            method.
+            </returns>
+        </member>
+        <member name="M:BenfWaves.Library.SIValue.System#Xml#Serialization#IXmlSerializable#ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Generates an object from its XML representation.
+            </summary>
+            <param name="reader">
+            The System.Xml.XmlReader stream from which the object is deserialized.
+            </param>
+        </member>
+        <member name="M:BenfWaves.Library.SIValue.System#Xml#Serialization#IXmlSerializable#WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Converts an object into its XML representation.
+            </summary>
+            <param name="writer">
+            The System.Xml.XmlWriter stream to which the object is serialized.
+            </param>
+        </member>
+        <member name="T:BenfWaves.Library.SIdB">
+            <summary>
+            A dB quantity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIdB.UnitInternal">
+            <summary>The unit of the quantity.</summary>
+        </member>
+        <member name="T:BenfWaves.Library.SIAngle">
+            <summary>
+            An angle quantity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIAngle.UnitInternal">
+            <summary>The unit of the quantity.</summary>
+        </member>
+        <member name="T:BenfWaves.Library.SIPrefixedValue">
+            <summary>
+            An SI value, with a value, a unit and a magnitude prefix.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.SIPrefixedValue.magToPrefix">
+            <summary>
+            A dictionary of SI exponents and their corresponding prefix letters.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.SIPrefixedValue.prefixToMag">
+            <summary>
+            A dictionary of SI prefix letters and their corresponding exponents.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.SIPrefixedValue.parserPrefixed">
+            <summary>
+            A regular expression to parse formatted SI quantity strings.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.SIPrefixedValue.sigdigs">
+            <summary>The significant digit portion of the SI quantity.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIPrefixedValue.SigDigs">
+            <summary>The significant digit portion of the SI quantity.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIPrefixedValue.Exponent">
+            <summary>The exponent of the SI quantity.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIPrefixedValue.Value">
+            <summary>The non-normalized value.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIPrefixedValue.Prefix">
+            <summary>
+            The SI prefix letter to indicate the order of magnitude of the
+            quantity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIPrefixedValue.Formatted">
+            <summary>
+            The SI quantity as a formatted string.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.SIPrefixedValue.#cctor">
+            <summary>The static constructor.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.SIPrefixedValue.#ctor(System.String)">
+            <summary>
+            Construct an SI value by parsing a string.
+            </summary>
+            <param name="formatted">The formatted SI value.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SIPrefixedValue.#ctor(System.Double)">
+            <summary>
+            Construct an SI value by providing a value.
+            </summary>
+            <param name="value">The value of the SI quantity.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SIPrefixedValue.#ctor">
+            <summary>
+            Construct the default SI value, initialized to zero.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.SIPrefixedValue.Normalize(System.Double,System.Double@,System.Int32@)">
+            <summary>
+            Normalizes a value to have between 1 and 3 digits before the point,
+            so that value = sigdigs * 10^exp, abs(sigdigs) between 1 and 999
+            </summary>
+            <param name="value">The unnormalized value</param>
+            <param name="sigdigs">The normalized value</param>
+            <param name="exp">The exponent</param>
+        </member>
+        <member name="T:BenfWaves.Library.SIVoltage">
+            <summary>A voltage quantity in SI format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIVoltage.UnitInternal">
+            <summary>The unit of the quantity.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.SIVoltage.#ctor(System.String)">
+            <summary>
+            Construct an SI value by parsing a string.
+            </summary>
+            <param name="formatted">The formatted SI value.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SIVoltage.#ctor(System.Double)">
+            <summary>
+            Construct an SI value by providing a value.
+            </summary>
+            <param name="value">The value of the SI quantity.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SIVoltage.#ctor">
+            <summary>
+            Construct the default SI value, initialized to zero.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.SITime">
+            <summary>A time quantity in SI format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SITime.UnitInternal">
+            <summary>The unit of the quantity.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.SITime.#ctor(System.String)">
+            <summary>
+            Construct an SI value by parsing a string.
+            </summary>
+            <param name="formatted">The formatted SI value.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SITime.#ctor(System.Double)">
+            <summary>
+            Construct an SI value by providing a value.
+            </summary>
+            <param name="value">The value of the SI quantity.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SITime.#ctor">
+            <summary>
+            Construct the default SI value, initialized to zero.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.SIFreq">
+            <summary>A frequency quantity in SI format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIFreq.UnitInternal">
+            <summary>The unit of the quantity.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.SIFreq.#ctor(System.String)">
+            <summary>
+            Construct an SI value by parsing a string.
+            </summary>
+            <param name="formatted">The formatted SI value.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SIFreq.#ctor(System.Double)">
+            <summary>
+            Construct an SI value by providing a value.
+            </summary>
+            <param name="value">The value of the SI quantity.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SIFreq.#ctor">
+            <summary>
+            Construct the default SI value, initialized to zero.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.SIResistance">
+            <summary>A resistance quantity in SI format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.SIResistance.UnitInternal">
+            <summary>The unit of the quantity.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.SIResistance.#ctor(System.String)">
+            <summary>
+            Construct an SI value by parsing a string.
+            </summary>
+            <param name="formatted">The formatted SI value.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SIResistance.#ctor(System.Double)">
+            <summary>
+            Construct an SI value by providing a value.
+            </summary>
+            <param name="value">The value of the SI quantity.</param>
+        </member>
+        <member name="M:BenfWaves.Library.SIResistance.#ctor">
+            <summary>
+            Construct the default SI value, initialized to zero.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.Utils">
+            <summary>
+            A class containing general utilities.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.Utils.configuration">
+            <summary>
+            A string representing the build configuration.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.Waveform">
+            <summary>A single waveform.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.Waveform.serializer">
+            <summary>The XML serializer for this class.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Waveform.Profile">
+            <summary>All attributes of the waveform.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Waveform.Point">
+            <summary>The list of waveform data points.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Waveform.FirstIndex">
+            <summary>The first sample index in the waveform.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Waveform.LastIndex">
+            <summary>The last sample index in the waveform.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.Waveform.Voltages">
+            <summary>
+            The series of voltages as a function of time.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Waveform.FromXMLFile(System.String)">
+            <summary>
+            Construct a Waveform by reading an XML file.
+            </summary>
+            <param name="filename">The name of the file to read.</param>
+            <returns>The new WaveForm instance.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.Waveform.ToXMLStream(System.IO.TextWriter)">
+            <summary>
+            Save this Waveform to an XML file.
+            </summary>
+            <param name="writer">The stream writer to write to.</param>
+        </member>
+        <member name="M:BenfWaves.Library.Waveform.InitSeries">
+            <summary>
+            Initialize the series data.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Library.Point">
+            <summary>A single data point in the waveform.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Point.Parent">
+            <summary>The waveform to which this point belongs.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Point.seq">
+            <summary>The index of the data point.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Point.val">
+            <summary>The value of the data point.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.Point.Time">
+            <summary>
+            The time of this point, relative to the trigger index. Formatted
+            as an SI quantity.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Point.TimeDouble">
+            <summary>
+            The time of this point, relative to the trigger index.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.Point.Voltage">
+            <summary>
+            The voltage at this point, as an SI quantity.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Point.#ctor">
+            <summary>
+            The parameterless constructor.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.Point.#ctor(System.Int32,System.Double)">
+            <summary>
+            A constructor for immediate initialization.
+            </summary>
+            <param name="seq">The point index.</param>
+            <param name="val">The point voltage.</param>
+        </member>
+        <member name="T:BenfWaves.Library.WaveformFormat">
+            <summary>
+            A format to which a waveform can be saved.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.WaveformFormat.Formats">
+            <summary>
+            The list of all waveform formats.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.WaveformFormat.AllFilters">
+            <summary>
+            All filter strings concatenated, for use in Windows Forms save and
+            load dialogues.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.WaveformFormat.Extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.WaveformFormat.Description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.WaveformFormat.Filter">
+            <summary>
+            The filter string to use for open and save dialogues.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.WaveformFormat.Save(BenfWaves.Library.Waveform,System.IO.StreamWriter)">
+            <summary>Save a waveform to a stream.</summary>
+            <param name="waveform">The waveform to save.</param>
+            <param name="writer">The stream writer to write to.</param>
+        </member>
+        <member name="M:BenfWaves.Library.WaveformFormat.Save(BenfWaves.Library.Waveform,System.String)">
+            <summary>Save a waveform to a file.</summary>
+            <param name="waveform">The waveform to save.</param>
+            <param name="filename">The name of the file to save to.</param>
+        </member>
+        <member name="T:BenfWaves.Library.TemplatedFormat">
+            <summary>
+            A format based off of a template text file in a resource.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.TemplatedFormat.parser">
+            <summary>
+            The parsing regex, used to extract property names from templates.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.TemplatedFormat.TemplateResourceName">
+            <summary>
+            The name of the resource containing the template text for this
+            format.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.TemplatedFormat.Template">
+            <summary>
+            The template text for this format, containing property
+            placeholders.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.TemplatedFormat.ReplaceToken(System.String,BenfWaves.Library.Waveform)">
+            <summary>Replace a template token.</summary>
+            <param name="token">The token string.</param>
+            <param name="waveform">
+            The waveform from which data should be taken.
+            </param>
+            <returns>The replacement text.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.TemplatedFormat.Replace(System.String,BenfWaves.Library.Waveform)">
+            <summary>
+            Replace {tokens} in a template string with data from a waveform.
+            </summary>
+            <param name="text">The template string.</param>
+            <param name="waveform">
+            The waveform from which properties will be acquired.
+            </param>
+            <returns>The template string, with {tokens} replaced.</returns>
+        </member>
+        <member name="M:BenfWaves.Library.TemplatedFormat.Save(BenfWaves.Library.Waveform,System.IO.StreamWriter)">
+            <summary>
+            Save a waveform to a stream.
+            </summary>
+            <param name="waveform">The waveform to save.</param>
+            <param name="writer">The stream writer to write to.</param>
+        </member>
+        <member name="T:BenfWaves.Library.XmlFormat">
+            <summary>The DSO Nano XML format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.XmlFormat.Extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.XmlFormat.Description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.XmlFormat.Save(BenfWaves.Library.Waveform,System.IO.StreamWriter)">
+            <summary>
+            Save a waveform to a stream.
+            </summary>
+            <param name="waveform">The waveform to save.</param>
+            <param name="writer">The stream writer to write to.</param>
+        </member>
+        <member name="T:BenfWaves.Library.MatlabFormat">
+            <summary>
+            A format for a Matlab/Octave script containing the data and a basic
+            graph routine.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.MatlabFormat.Extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.MatlabFormat.Description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.MatlabFormat.TemplateResourceName">
+            <summary>
+            The name of the resource containing the template text for this format.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.MatlabFormat.ReplaceToken(System.String,BenfWaves.Library.Waveform)">
+            <summary>
+            Replace a template token.
+            </summary>
+            <param name="token">The token string.</param>
+            <param name="waveform">
+            The waveform from which data should be taken.
+            </param>
+            <returns>The replacement text.</returns>
+        </member>
+        <member name="T:BenfWaves.Library.GnuplotFormat">
+            <summary>A Gnuplot script format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.GnuplotFormat.Extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.GnuplotFormat.Description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.GnuplotFormat.TemplateResourceName">
+            <summary>
+            The name of the resource containing the template text for this
+            format.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Library.GnuplotFormat.ReplaceToken(System.String,BenfWaves.Library.Waveform)">
+            <summary>Replace a template token.</summary>
+            <param name="token">The token string.</param>
+            <param name="waveform">
+            The waveform from which data should be taken.
+            </param>
+            <returns>The replacement text.</returns>
+        </member>
+        <member name="T:BenfWaves.Library.DelimitedFormat">
+            <summary>A simple string-delimited format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.DelimitedFormat.Delimiter">
+            <summary>The string to add between columns in the file.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.DelimitedFormat.Save(BenfWaves.Library.Waveform,System.IO.StreamWriter)">
+            <summary>
+            Save a waveform to a stream.
+            </summary>
+            <param name="waveform">The waveform to save.</param>
+            <param name="writer">The stream writer to write to.</param>
+        </member>
+        <member name="T:BenfWaves.Library.TSVFormat">
+            <summary>A simple tab-separated value format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.TSVFormat.Extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.TSVFormat.Description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.TSVFormat.Delimiter">
+            <summary>The string to add between columns in the file.</summary>
+        </member>
+        <member name="T:BenfWaves.Library.CSVFormat">
+            <summary>A simple comma-separated value format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.CSVFormat.Extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.CSVFormat.Description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.CSVFormat.Delimiter">
+            <summary>The string to add between columns in the file.</summary>
+        </member>
+        <member name="T:BenfWaves.Library.ExcelFormat">
+            <summary>
+            A format representing Microsoft Excel spreadsheets.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Library.ExcelFormat.Extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.ExcelFormat.Description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.ExcelFormat.Is64BitProcess">
+            <summary>Check whether the current process is 64-bit.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.ExcelFormat.Save(BenfWaves.Library.Waveform,System.String)">
+            <summary>Save a waveform to a file.</summary>
+            <param name="waveform">The waveform to save.</param>
+            <param name="filename">The name of the file to save to.</param>
+        </member>
+        <member name="M:BenfWaves.Library.ExcelFormat.WriteTemplate(System.String)">
+            <summary>
+            Write out the Excel template resource to a file, overwriting it if
+            it already exists.
+            </summary>
+            <param name="filename">The name of the file to write.</param>
+        </member>
+        <member name="T:BenfWaves.Library.RenderedFormat">
+            <summary>
+            A rendered image format. This requires external rendering code.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.RenderedFormat.WaveformToBitmap">
+            <summary>
+            A delegate that must be initialized before attempting to save any
+            images. It accepts a waveform and returns a rendered bitmap. It's
+            done this way to keep the format code in the library but decouple
+            the UI, since rendering is done in the UI.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.RenderedFormat.format">
+            <summary>
+            The type of image that will be saved.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Library.RenderedFormat.extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="F:BenfWaves.Library.RenderedFormat.description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.RenderedFormat.Extension">
+            <summary>The file extension for this format.</summary>
+        </member>
+        <member name="P:BenfWaves.Library.RenderedFormat.Description">
+            <summary>A description for this format.</summary>
+        </member>
+        <member name="M:BenfWaves.Library.RenderedFormat.Save(BenfWaves.Library.Waveform,System.String)">
+            <summary>Save a waveform to a file.</summary>
+            <param name="waveform">The waveform to save.</param>
+            <param name="filename">The name of the file to save to.</param>
+        </member>
+        <member name="M:BenfWaves.Library.RenderedFormat.#ctor(System.Drawing.Imaging.ImageFormat,System.String,System.String)">
+            <summary>
+            Construct a new rendered image format.
+            </summary>
+            <param name="format">The type of image that will be saved.</param>
+            <param name="extension">The image file extension.</param>
+            <param name="description">The image file description string.</param>
+        </member>
+    </members>
+</doc>

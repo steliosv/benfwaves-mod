@@ -1,0 +1,5 @@
+<map id="BenfWaves.Client.WaveformPanel" name="BenfWaves.Client.WaveformPanel">
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_series.html" title="A waveform data series." alt="" coords="85,387,255,465"/>
+<area shape="rect" id="node4" href="$class_benf_waves_1_1_library_1_1_series_dimension.html" title="One dimension of a data series." alt="" coords="194,5,365,171"/>
+<area shape="rect" id="node5" href="$class_benf_waves_1_1_client_1_1_display_dimension.html" title="A class to factor common code between horizontal axis and vertical axis operations on the waveform di..." alt="" coords="279,248,450,604"/>
+</map>

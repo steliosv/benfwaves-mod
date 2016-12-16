@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/svn/!svn/ver/148/branches/basic-vs2012/BenfWaves.Library
+END
+Waveform.cs
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/146/branches/basic-vs2012/BenfWaves.Library/Waveform.cs
+END
+SIValue.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/146/branches/basic-vs2012/BenfWaves.Library/SIValue.cs
+END
+Series.cs
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/146/branches/basic-vs2012/BenfWaves.Library/Series.cs
+END
+BenfWaves.Library.csproj
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/148/branches/basic-vs2012/BenfWaves.Library/BenfWaves.Library.csproj
+END
+WaveformFormat.cs
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/svn/!svn/ver/146/branches/basic-vs2012/BenfWaves.Library/WaveformFormat.cs
+END
+Utils.cs
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/svn/!svn/ver/148/branches/basic-vs2012/BenfWaves.Library/Utils.cs
+END
+Profile.cs
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/146/branches/basic-vs2012/BenfWaves.Library/Profile.cs
+END
+PropertyExtractor.cs
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/svn/!svn/ver/146/branches/basic-vs2012/BenfWaves.Library/PropertyExtractor.cs
+END

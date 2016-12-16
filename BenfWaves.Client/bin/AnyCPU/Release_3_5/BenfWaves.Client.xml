@@ -1,0 +1,801 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BenfWaves.Client</name>
+    </assembly>
+    <members>
+        <member name="T:BenfWaves.Client.DisplayDimension">
+            <summary>
+            A class to factor common code between horizontal axis and vertical axis
+            operations on the waveform display.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.Orth">
+            <summary>The dimension orthagonal to this one.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.ScrollPan">
+            <summary>The scrollbar to pan across the dimension.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.ScrollZoom">
+            <summary>The scrollbar to zoom in and out.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.DisplayInversion">
+            <summary>Whether the axis direction is inverted.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.DisplayDimension.seriesDim">
+            <summary>The associated waveform.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.SeriesDim">
+            <summary>The associated waveform.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.GetPanelSize">
+            <summary>
+            A function to get the panel size in this dimension.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.TransposePointF">
+            <summary>
+            A function to convert from absolute coordinates to coordinates that
+            might be transposed to correct for this dimension.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.Intersect">
+            <summary>
+            A function to look for an intersection; the argument is a pixel
+            distance and the return value is a waveform quantity (or null if no
+            intersection was found).
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.PanelPixels">
+            <summary>
+            The size of the panel, in transposed pixel coordinates.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.StringFormat">
+            <summary>
+            The string format that determines whether axis quantities are shown
+            normally or rotated 90 degrees.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.DisplayDimension.MaxZoom">
+            <summary>The maximum zoom exponent.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.DisplayDimension.pinnedCentre">
+            <summary>
+            The scrollbar value to maintain a centred display while zooming.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.DisplayDimension.zooming">
+            <summary>Whether this dimension is currently zooming.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.ZoomFactor">
+            <summary>The zoom multiplier.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.ViewStartFactor">
+            <summary>
+            The pan position of the view, as a factor of total width.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.DisplayDimension.TransposePoint(System.Drawing.Point)">
+            <summary>
+            Transpose a point from absolute coordinates to dimension-
+            corrected coordinates.
+            </summary>
+            <param name="old">The original (absolute) point.</param>
+            <returns>A point that might be transposed to be corrected.</returns>
+        </member>
+        <member name="M:BenfWaves.Client.DisplayDimension.PixelToUnit(System.Single)">
+            <summary>
+            Convert a pixel distance to a waveform quantity.
+            </summary>
+            <param name="pixel">The pixel distance.</param>
+            <returns>The waveform quantity.</returns>
+        </member>
+        <member name="M:BenfWaves.Client.DisplayDimension.UnitToPixel(System.Double)">
+            <summary>
+            Convert a waveform quantity to a pixel distance.
+            </summary>
+            <param name="unit">The waveform quantity.</param>
+            <returns>The pixel distance.</returns>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.UnitPerPixel">
+            <summary>
+            The waveform quantity per display pixel.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.UnitPerDiv">
+            <summary>
+            The waveform quantity per display division.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.PixelsPerDiv">
+            <summary>
+            The number of display pixels per division.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.DisplayDimension.Divs">
+            <summary>
+            The number of divs in this dimension.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.DisplayDimension.IterateGrid(System.Action{System.Single,System.Double,System.Boolean})">
+            <summary>
+            Iterate through the possible grid values in this dimension.
+            </summary>
+            <param name="body">
+            The loop body delegate, accepting parameters for the pixel value,
+            the waveform quantity, and whether text should be drawn at this
+            location.
+            </param>
+        </member>
+        <member name="M:BenfWaves.Client.DisplayDimension.RefreshPan">
+            <summary>
+            Refresh the pan scrollbar based on zoom information.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.DisplayDimension.RefreshPan(System.Windows.Forms.ScrollEventType)">
+            <summary>
+            Refresh the pan scrollbar based on zoom information.
+            </summary>
+            <param name="sevent">
+            The type of scroll event received. If any type except EndScroll,
+            the dimension goes into zooming mode with a fixed centre.
+            Otherwise, zooming mode is finished.
+            </param>
+        </member>
+        <member name="T:BenfWaves.Client.TableLabel">
+            <summary>
+            A label in a table that is centered vertically and docked.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.TableLabel.#ctor">
+            <summary>
+            The constructor. Nothing special.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.TableLabel.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.TableLabel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BenfWaves.Client.TableLabel.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Client.MainForm">
+            <summary>The main application form.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.MainForm.mdiChildItems">
+            <summary>
+            A list of controls only enabled if an MDI child is active.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.MainForm.defaultStatus">
+            <summary>The default text to show in the status bar.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.MainForm.DefaultStatus">
+            <summary>The default text to show in the status bar.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.MainForm.Status">
+            <summary>
+            The status bar text on the bottom of the MDI parent.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.#ctor">
+            <summary>The constructor for the main form.</summary>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.WindowForWaveform(BenfWaves.Library.Waveform)">
+            <summary>
+            Look up which MDI window is associated with a certain waveform.
+            </summary>
+            <param name="waveform">The waveform to look for.</param>
+            <returns>An MDI child window.</returns>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.OpenFile_Click(System.Object,System.EventArgs)">
+            <summary>Open a file.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.SaveFile_Click(System.Object,System.EventArgs)">
+            <summary>Save a file to a specific location.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.Exit_Click(System.Object,System.EventArgs)">
+            <summary>Quit the program.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.ShowToolbar_Click(System.Object,System.EventArgs)">
+            <summary>Show or hide the toolbar.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.ShowStatusbar_Click(System.Object,System.EventArgs)">
+            <summary>Show or hide the status bar.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.Cascade_Click(System.Object,System.EventArgs)">
+            <summary>Cascade the MDI child windows.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.TileVertical_Click(System.Object,System.EventArgs)">
+            <summary>Tile the MDI children vertically.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.TileHorizontal_Click(System.Object,System.EventArgs)">
+            <summary>Tile the MDI children horizontally.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.ArrangeIcons_Click(System.Object,System.EventArgs)">
+            <summary>Arrange minimized MDI child window icons.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.CloseAll_Click(System.Object,System.EventArgs)">
+            <summary>Close all MDI children.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.Homepage_Click(System.Object,System.EventArgs)">
+            <summary>Show the project's home page on Google Code.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.Wiki_Click(System.Object,System.EventArgs)">
+            <summary>Show the wiki for this project.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.FirmwareManual_Click(System.Object,System.EventArgs)">
+            <summary>Show the BenF firmware manual.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.MainForm_MdiChildActivate(System.Object,System.EventArgs)">
+            <summary>
+            Change the controls to reflect an MDI child being active or
+            inactive.
+            </summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event arguments.</param>
+        </member>
+        <member name="F:BenfWaves.Client.MainForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BenfWaves.Client.MainForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Client.Program">
+            <summary>
+            The main application class.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.Program.configuration">
+            <summary>
+            A string representing the build configuration.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.Program.mainform">
+            <summary>
+            The only instance of the main MDI parent window.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Program.MainForm">
+            <summary>
+            The only instance of the main MDI parent window (read-only).
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.Program.HandleException(System.Exception)">
+            <summary>
+            Handle an exception, and save some debug messages to a text file.
+            </summary>
+            <param name="e">The exception that will be handled.</param>
+        </member>
+        <member name="T:BenfWaves.Client.ReadOnlyComboBox">
+            <summary>
+            A combobox that appears as an enabled one does, but does not allow the
+            value to change
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.ReadOnlyComboBox.ignoreNextChange">
+            <summary>
+            True if a user selection change is to be reverted.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.ReadOnlyComboBox.prevIndex">
+            <summary>
+            The previous index to use when a changed index must be reverted.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.ReadOnlyComboBox.#ctor">
+            <summary>The constructor.</summary>
+        </member>
+        <member name="M:BenfWaves.Client.ReadOnlyComboBox.ReadOnlyComboBox_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Revert a change in selection if appropriate.
+            </summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event parameters.</param>
+        </member>
+        <member name="M:BenfWaves.Client.ReadOnlyComboBox.ReadOnlyComboBox_SelectionChangeCommitted(System.Object,System.EventArgs)">
+            <summary>
+            Detect a user selection change (and not a change from a binding
+            source).
+            </summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event parameters.</param>
+        </member>
+        <member name="F:BenfWaves.Client.ReadOnlyComboBox.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.ReadOnlyComboBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BenfWaves.Client.ReadOnlyComboBox.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Client.ReadOnlyTableTextbox">
+            <summary>
+            A text box that is docked in a table, that is read-only, and whose
+            background appears enabled.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.ReadOnlyTableTextbox.#ctor">
+            <summary>
+            The constructor. Nothing special.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.ReadOnlyTableTextbox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.ReadOnlyTableTextbox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BenfWaves.Client.ReadOnlyTableTextbox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Client.TriggeredWaveformPanel">
+            <summary>
+            A waveform panel for voltage with respect to time that, in addition
+            to the trace, displays trigger levels.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.TriggeredWaveformPanel.triggerPen">
+            <summary>The pen to draw the trigger lines.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.TriggeredWaveformPanel.Waveform">
+            <summary>
+            The waveform that this panel draws.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.TriggeredWaveformPanel.#ctor">
+            <summary>
+            The constructor.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.TriggeredWaveformPanel.DrawTriggers(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Draw the one or two trigger levels, and the trigger event.
+            </summary>
+            <param name="e">
+            The paint event arguments, including clipping information and
+            a graphics object.
+            </param>
+        </member>
+        <member name="M:BenfWaves.Client.TriggeredWaveformPanel.DrawFeatures(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Draw all of the features on this panel.
+            </summary>
+            <param name="e">
+            The paint event arguments, including clipping information and
+            a graphics object.
+            </param>
+        </member>
+        <member name="F:BenfWaves.Client.TriggeredWaveformPanel.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.TriggeredWaveformPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BenfWaves.Client.TriggeredWaveformPanel.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Client.WaveformPanel">
+            <summary>
+            A simple trace display for a waveform.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.tracePen">
+            <summary>The pen to draw the waveform trace.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.axisPen">
+            <summary>The pen to draw the axes.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.gridPen">
+            <summary>The pen to draw the grid lines.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.cursorPen">
+            <summary>The pen to draw the cursor lines.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.axisTextBrush">
+            <summary>
+            The brush for the axis text (voltage and time markings).
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.axisTextFont">
+            <summary>
+            The font for the axis text (voltage and time markings).
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.dimHorz">
+            <summary>The horizontal display dimension.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.dimVert">
+            <summary>The vertical display dimension.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.WaveformPanel.hScrollPan">
+            <summary>
+            The horizontal pan scrollbar.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.WaveformPanel.vScrollPan">
+            <summary>
+            The vertical pan scrollbar.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.WaveformPanel.hScrollZoom">
+            <summary>
+            The horizontal zoom scrollbar.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.WaveformPanel.vScrollZoom">
+            <summary>
+            The vertical zoom scrollbar.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.quality">
+            <summary>
+            The drawing quality of the waveform. This should be decreased when
+            the user is resizing, zooming, etc.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.drawCursors">
+            <summary>
+            Whether to draw horizontal and vertical cursors on the waveform.
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.series">
+            <summary>The series to draw.</summary>
+        </member>
+        <member name="P:BenfWaves.Client.WaveformPanel.Series">
+            <summary>The series to draw.</summary>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.#ctor">
+            <summary>
+            The constructor.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.IndexToPixel(System.Int32)">
+            <summary>
+            Convert an array index to a pixel distance.
+            </summary>
+            <param name="index">The array index.</param>
+            <returns>A pixel distance suitable for PointF.</returns>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.PixelToIndex(System.Single)">
+            <summary>
+            Convert from a pixel value to a sequence index.
+            </summary>
+            <param name="pixel">The pixel distance.</param>
+            <returns>The sequence index.</returns>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.DrawAxes(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Draw the horizontal and vertical axes.
+            </summary>
+            <param name="e">
+            The paint event arguments, including clipping information and
+            a graphics object.
+            </param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.DrawCursor(System.Windows.Forms.PaintEventArgs,BenfWaves.Client.DisplayDimension)">
+            <summary>
+            Draw a horizontal or vertical cursor on the display in a dimension-
+            agnostic fashion.
+            </summary>
+            <param name="e">
+            The paint event arguments, including clipping information and
+            a graphics object.
+            </param>
+            <param name="dim">The dimension of the cursor being drawn.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.DrawGrid(System.Windows.Forms.PaintEventArgs,BenfWaves.Client.DisplayDimension)">
+            <summary>
+            Draw a grid in a dimension-agnostic fashion (ie. this is reused for
+            both horizontal and vertical grids).
+            </summary>
+            <param name="e">
+            The paint event arguments, including clipping information and
+            a graphics object.
+            </param>
+            <param name="dim">The dimension of the grid being drawn.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.DrawTrace(System.Windows.Forms.PaintEventArgs)">
+            <summary>Draw the trace.</summary>
+            <param name="e">
+            The paint event arguments, including clipping information and
+            a graphics object.
+            </param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.hScrollZoom_Scroll(System.Object,System.Windows.Forms.ScrollEventArgs)">
+            <summary>Zoom horizontally.</summary>
+            <param name="sender">The scrollbar.</param>
+            <param name="e">Scroll event information.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.vScrollZoom_Scroll(System.Object,System.Windows.Forms.ScrollEventArgs)">
+            <summary>Zoom vertically.</summary>
+            <param name="sender">The scrollbar.</param>
+            <param name="e">Scroll event information.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.ScrollPan_Scroll(System.Object,System.Windows.Forms.ScrollEventArgs)">
+            <summary>Pan in either direction.</summary>
+            <param name="sender">The scrollbar.</param>
+            <param name="e">Scroll event information.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.WaveformPanel_Paint(System.Object,System.Windows.Forms.PaintEventArgs)">
+            <summary>Draw all waveform features.</summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">
+            The event arguments. This includes clipping information and a
+            graphics object.
+            </param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.DrawFeatures(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Draw all of the features on this panel.
+            </summary>
+            <param name="e">
+            The paint event arguments, including clipping information and
+            a graphics object.
+            </param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.AdjustQuality(System.Windows.Forms.ScrollEventArgs)">
+            <summary>
+            Adjust the quality of drawing while something is being scrolled.
+            </summary>
+            <param name="e">The scroll event information.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.DrawBitmap">
+            <summary>
+            Draw the display to a bitmap.
+            </summary>
+            <returns>The drawn bitmap object.</returns>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.WaveformPanel_MouseEnter(System.Object,System.EventArgs)">
+            <summary>
+            Enable cursors when the mouse is over the display.
+            </summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event parameters.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.WaveformPanel_MouseLeave(System.Object,System.EventArgs)">
+            <summary>
+            Disable the cursors when the mouse is not over the display.
+            </summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event parameters.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.WaveformPanel_MouseMove(System.Object,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Update the cursors as the mouse moves.
+            </summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event parameters.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.timerHover_Tick(System.Object,System.EventArgs)">
+            <summary>
+            Wait until the mouse has stopped moving before increasing quality.
+            </summary>
+            <param name="sender">The event sender.</param>
+            <param name="e">The event parameters.</param>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformPanel.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformPanel.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Client.WaveformWindow">
+            <summary>
+            The MDI child form representing a single waveform
+            </summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformWindow.waveform">
+            <summary>
+            The waveform object associated with this window
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.WaveformWindow.PanelVoltTime">
+            <summary>
+            The main waveform display panel for the voltage vs. time plot.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformWindow.#ctor(System.Windows.Forms.Form,BenfWaves.Library.Waveform)">
+            <summary>
+            The constructor for the waveform MDI child window
+            </summary>
+            <param name="parent">The MDI parent window</param>
+            <param name="waveform">
+            The waveform object to associate with this window
+            </param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformWindow.AddMouseListener(System.Windows.Forms.Control)">
+            <summary>
+            Add listeners on mouse events for all controls that have a tooltip.
+            When the mouse is on such a control, the tooptip text also goes to
+            the status bar.
+            </summary>
+            <param name="control">The control to add listeners to.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformWindow.SaveAs">
+            <summary>Save the current file.</summary>
+        </member>
+        <member name="F:BenfWaves.Client.WaveformWindow.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformWindow.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:BenfWaves.Client.WaveformWindow.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:BenfWaves.Client.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.document_open">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.document_print">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.document_print_preview">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.document_properties">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.document_save">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.edit_copy">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.go_home">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.help_browser">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.internet_web_browser">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.preferences_system_windows">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.system_log_out">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:BenfWaves.Client.Properties.Resources.utilities_system_monitor_icon">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+    </members>
+</doc>

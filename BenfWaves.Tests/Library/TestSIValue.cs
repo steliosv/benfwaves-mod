@@ -1,0 +1,121 @@
+﻿/** \file
+* \$Rev: 123 $
+* 
+* \$Date: 2011-05-27 01:46:07 +0000 (Fri, 27 May 2011) $
+*
+* \$URL: http://benfwaves.googlecode.com/svn/branches/basic-vs2012/BenfWaves.Tests/Library/TestSIValue.cs $
+*/
+
+using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
+namespace BenfWaves.Library.Tests
+{
+	/// <summary>
+	/// Tests for the SI-notation quantity class.
+	/// </summary>
+	[TestClass]
+	public class TestSIValue
+	{
+		/// <summary>
+		/// Test that SIValue can properly parse strings.
+		/// </summary>
+		[TestMethod]
+		public void FromFormatted()
+		{
+			SIVoltage volts = new SIVoltage("0.4mV");
+			Assert.AreEqual(volts.Exponent, -6);
+			Assert.AreEqual(volts.Formatted, "400uV");
+			Assert.AreEqual(volts.Prefix, "u");
+			Assert.AreEqual(volts.SigDigs, 400);
+			Assert.AreEqual(volts.Unit, "V");
+			Assert.IsTrue(Math.Abs(volts.Value/400e-6 - 1) < 1e-6);
+		}
+
+		/// <summary>
+		/// Test that SIValue can properly parse many strings.
+		/// </summary>
+		[TestMethod]
+		public void FromFormattedLoop()
+		{
+			// Run through a big loop of variations on formatted strings and
+			// see if SIValue can parse them all.
+			bool[] truefalse = new bool[] { true, false };
+			int ntested = 0;
+			foreach (string unit in new string[] { "mV", "V" })
+			{
+				foreach (bool neg in truefalse)
+				{
+					foreach (bool zeros in truefalse)
+					{
+						for (int leadingSpace = 0; leadingSpace <= 2; leadingSpace++)
+						{
+							for (int midSpace = 0; midSpace <= 2; midSpace++)
+							{
+								for (int trailSpace = 0; trailSpace <= 2; trailSpace++)
+								{
+									string formatted =
+										new string(' ', leadingSpace);
+									if (neg)
+										formatted += '-';
+									if (unit == "V")
+									{
+										if (zeros)
+											formatted += "0";
+										formatted += '.';
+									}
+									formatted += "123";
+									if (unit == "mV" && zeros)
+										formatted += ".00";
+									formatted += new string(' ', midSpace) + unit +
+										new string(' ', trailSpace);
+
+									SIPrefixedValue sivnew = new SIVoltage(formatted);
+									Assert.AreEqual(sivnew.Formatted,
+										neg ? "-123mV" : "123mV");
+									Assert.AreEqual(sivnew.SigDigs,
+										neg ? -123 : 123);
+									Assert.AreEqual(sivnew.Prefix, "m");
+									Assert.AreEqual(sivnew.Exponent, -3);
+									Assert.AreEqual(sivnew.Unit, "V");
+									ntested++;
+								}
+							}
+						}
+					}
+				}
+			}
+			Assert.AreEqual(ntested, 2 * 2 * 2 * 3 * 3 * 3);
+		}
+
+		/// <summary>
+		/// Test that SIValue can properly be initialized from values.
+		/// </summary>
+		[TestMethod]
+		public void FromValue()
+		{
+			SITime sitime;
+
+			sitime = new SITime(2000);
+			Assert.AreEqual(sitime.Formatted, "2ks");
+			Assert.AreEqual(sitime.SigDigs, 2);
+			Assert.AreEqual(sitime.Prefix, "k");
+			Assert.AreEqual(sitime.Exponent, 3);
+			Assert.AreEqual(sitime.Unit, "s");
+
+			sitime = new SITime(-2.1);
+			Assert.AreEqual(sitime.Formatted, "-2.1s");
+			Assert.AreEqual(sitime.SigDigs, -2.1);
+			Assert.AreEqual(sitime.Prefix, "");
+			Assert.AreEqual(sitime.Exponent, 0);
+			Assert.AreEqual(sitime.Unit, "s");
+
+			sitime = new SITime(0);
+			Assert.AreEqual(sitime.Formatted, "0s");
+			Assert.AreEqual(sitime.SigDigs, 0);
+			Assert.AreEqual(sitime.Prefix, "");
+			Assert.AreEqual(sitime.Exponent, 0);
+			Assert.AreEqual(sitime.Unit, "s");
+		}
+	}
+}

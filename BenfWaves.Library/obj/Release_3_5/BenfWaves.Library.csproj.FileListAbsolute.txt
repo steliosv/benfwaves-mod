@@ -1,0 +1,16 @@
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Library\bin\AnyCPU\Release_3_5\BenfWaves.Library.xml
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Library\bin\AnyCPU\Release_3_5\BenfWaves.Library.dll
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Library\bin\AnyCPU\Release_3_5\BenfWaves.Library.pdb
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.csprojResolveAssemblyReference.cache
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.Properties.Resources.resources
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.csproj.GenerateResource.Cache
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.dll
+C:\Users\stevo\Desktop\BenfWaves_src\source-archive\benfwaves\branches\basic-vs2012\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.pdb
+C:\Users\stevo\Desktop\benfwaves-mod\BenfWaves.Library\bin\AnyCPU\Release_3_5\BenfWaves.Library.xml
+C:\Users\stevo\Desktop\benfwaves-mod\BenfWaves.Library\bin\AnyCPU\Release_3_5\BenfWaves.Library.dll
+C:\Users\stevo\Desktop\benfwaves-mod\BenfWaves.Library\bin\AnyCPU\Release_3_5\BenfWaves.Library.pdb
+C:\Users\stevo\Desktop\benfwaves-mod\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.csprojResolveAssemblyReference.cache
+C:\Users\stevo\Desktop\benfwaves-mod\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.Properties.Resources.resources
+C:\Users\stevo\Desktop\benfwaves-mod\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.csproj.GenerateResource.Cache
+C:\Users\stevo\Desktop\benfwaves-mod\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.dll
+C:\Users\stevo\Desktop\benfwaves-mod\BenfWaves.Library\obj\Release_3_5\BenfWaves.Library.pdb

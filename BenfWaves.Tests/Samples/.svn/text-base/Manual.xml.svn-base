@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  $Rev$
+  $Date$
+  $URL$
+-->
+<Document>
+  <Profile>
+	<triggerMode>NORM</triggerMode>
+	<triggerKind>EdgeRising</triggerKind>
+	<triggerLevel>3.76V</triggerLevel>
+	<triggerSensitivity>200mV</triggerSensitivity>
+	<attenuation>x1</attenuation>
+	<voltageDiv>1V</voltageDiv>
+	<timeDiv>200us</timeDiv>
+	<sampleDiv>200us</sampleDiv>
+	<firmware>V3.40</firmware>
+	<fileNumber>S003</fileNumber>
+	<triggerIndex>1420</triggerIndex>
+	<sampleCount>4098</sampleCount>
+	<timeRange>32.784e-3</timeRange>
+  </Profile>
+  <Point>
+	<seq>1418</seq>
+	<val>-40.000e-3</val>
+  </Point>
+  <Point>
+	<seq>1419</seq>
+	<val>-40.000e-3</val>
+  </Point>
+  <Point>
+	<seq>1420</seq>
+	<val>5.280</val>
+  </Point>
+  <Point>
+	<seq>1421</seq>
+	<val>5.200</val>
+  </Point>
+  <Point>
+	<seq>1422</seq>
+	<val>5.160</val>
+  </Point>
+</Document>

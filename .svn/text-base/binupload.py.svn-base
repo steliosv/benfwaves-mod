@@ -1,0 +1,60 @@
+#!/usr/bin/env python
+
+# $Rev$
+# $Date$
+# $URL$
+
+import os
+import string
+import subprocess
+
+import googlecode_upload
+
+def upload(dotnetver, platform, svnrev, svnuser):
+    summary = ('BenfWaves - .NET' + dotnetver + ' - ' \
+        + platform + ' - Rev' + svnrev).replace(':', '-')
+    print 'Summary: ' + summary
+    
+    bindir = 'BenfWaves.Client/bin/' + platform + '/Release_' \
+        + string.replace(dotnetver, '.', '_')
+    print 'Binary directory: ' + bindir
+    oldwd = os.getcwd()
+    os.chdir(bindir)
+    
+    archivename = summary + '.7z'
+    archivecmd = '7z a -t7z -mx=9 -mtc=on "' + archivename + '" ' + \
+        '"BenfWaves.Client.exe" "BenfWaves.Library.dll" > NUL';
+    print 'Archive command:'
+    print archivecmd
+    print ''
+    
+    if os.path.exists('"' + archivename + '"'):
+        os.remove('"' + archivename + '"')
+    os.system(archivecmd)
+
+    os.chdir(oldwd)
+            
+    labels = ['Type-Archive', 'OpSys-Windows', 'Featured']
+    
+    googlecode_upload.upload_find_auth(bindir + '/' + archivename, \
+        'benfwaves', summary, labels, svnuser)
+    print ''
+
+def main():
+    with open('../.svn/entries', 'r') as svnfile:
+        for i in range(1, 12):
+            svnfile.readline()
+        svnuser = svnfile.readline().rstrip()
+    svnfile.closed
+	
+    svnrev = subprocess.check_output('svnversion').rstrip()
+    
+    print 'SVN Revision: ' + svnrev
+    print 'SVN User: ' + svnuser
+    print ''
+
+    upload('3.5', 'x86', svnrev, svnuser)
+    upload('4.0', 'x86', svnrev, svnuser)
+    return 0
+    
+main()

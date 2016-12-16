@@ -1,0 +1,22 @@
+﻿/** \file
+* \$Rev$
+* 
+* \$Date$
+*
+* \$URL$
+*/
+
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+// using Microsoft.VisualStudio.TestTools.UITesting;
+
+/// <summary>
+/// The namespace containing all unit tests for the client.
+/// </summary>
+namespace BenfWaves.Client.Tests
+{
+	/// <summary>Tests for the Program class.</summary>
+	[TestClass]
+	public class TestProgram
+	{
+	}
+}

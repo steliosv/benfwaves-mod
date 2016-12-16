@@ -1,0 +1,60 @@
+#/// \file
+#/// \$Rev$
+#/// 
+#/// \$Date$
+#///
+#/// \$URL$
+
+# The following goes on the index of the documentation.
+
+#/// \mainpage BenfWaves Documentation
+#/// The DSO Nano is a small, open-source oscilloscope. There is an alternate
+#/// firmware for that oscilloscope called "Benf". That firmware can save
+#/// waveforms to XML files. This project is a simple client to examine those
+#/// waveforms. 
+
+PROJECT_NAME         = BenfWaves
+
+INPUT                = . doxyfile
+OUTPUT_DIRECTORY     = ./doc
+RECURSIVE            = YES
+FILE_PATTERNS        = *.cs
+EXCLUDE_PATTERNS     = *.Designer.cs */.svn* */bin* */obj* */doc* */TestResults*
+
+EXTRACT_ALL          = NO
+EXTRACT_PRIVATE      = YES
+EXTRACT_STATIC       = YES
+
+QUIET                = NO
+WARNINGS             = YES
+WARN_IF_UNDOCUMENTED = YES
+WARN_IF_DOC_ERROR    = YES
+WARN_NO_PARAMDOC     = YES
+WARN_FORMAT          = "$file($line) : $text"
+
+FULL_PATH_NAMES      = YES
+TAB_SIZE             = 4
+JAVADOC_AUTOBRIEF    = YES
+
+SOURCE_BROWSER       = NO
+INLINE_SOURCES       = NO
+VERBATIM_HEADERS     = NO
+
+HAVE_DOT             = YES
+DOT_MULTI_TARGETS    = YES # Requires dot version > 1.8.10
+INCLUDE_GRAPH        = YES
+CLASS_GRAPH          = YES
+CALL_GRAPH           = YES
+COLLABORATION_GRAPH  = YES
+GROUP_GRAPHS         = YES
+GRAPHICAL_HIERARCHY  = YES
+TEMPLATE_RELATIONS   = YES
+
+ALPHABETICAL_INDEX   = YES
+
+GENERATE_LATEX       = NO
+GENERATE_TREEVIEW    = YES
+
+# A custom footer is used that does not have a time. This is to prevent time
+# stamps from forcing spurious SVN changes.
+HTML_FOOTER          = ./doc/footer.html

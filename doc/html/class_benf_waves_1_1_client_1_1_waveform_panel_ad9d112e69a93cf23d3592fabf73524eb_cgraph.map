@@ -1,0 +1,4 @@
+<map id="BenfWaves.Client.WaveformPanel.DrawGrid" name="BenfWaves.Client.WaveformPanel.DrawGrid">
+<area shape="rect" id="node2" href="$class_benf_waves_1_1_client_1_1_display_dimension.html#a58ff4d64fe76adcc5cd55f3ff1593010" title="Iterate through the possible grid values in this dimension. " alt="" coords="245,5,415,47"/>
+<area shape="rect" id="node3" href="$class_benf_waves_1_1_library_1_1_s_i_value.html#aae6acd20320342eb30b210e1b7d36f80" title="Represent the SI quantity as a string. " alt="" coords="239,71,421,112"/>
+</map>
